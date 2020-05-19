@@ -1,0 +1,199 @@
+.title-login{
+	color: #e44d3a;
+	padding: 5px;
+}
+.title-login-title{
+	color: #e44d3a;
+	padding: 5px;
+	font-size: 14px;
+	text-align: center;
+}
+.forget-pass{
+	text-align: center;
+	margin-top: 10px;
+}
+.forget-pass ul li a{
+	color: #ff0000;
+	margin-top: 10px;
+}
+.box-choice {
+    color: #e44d3a;
+    margin-top:24px;
+   margin-bottom: 24px;
+    
+}
+ .box-choice span {
+    margin: 0 2px;
+    font-size: 17px;
+}
+.box-choice img {
+   margin-bottom:  5px;
+}
+.title-gren{
+	color: ##ccc;
+}
+.nganmenu {
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.nganmenu a {
+  float: left;
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin-left: 40px;
+}
+
+.nganmenu a:hover {
+  background: #ddd;
+  color: black;
+}
+.ngantitle{
+	font-size: 22px;
+	font-style: bold;
+}
+.image{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.image img{
+
+	width: 16px;
+	height: 16px;
+}
+.flw-status li a{
+	font-size: 14px;
+	font-style: bold;
+}
+.ngan-up{
+	float: left;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.ngan-up p{
+	padding: 10px;
+}
+.ngan-up ul li{
+	float: left;
+    display: block;
+      margin-bottom: 10px;
+    padding-bottom: 10px;
+   
+}
+.ngan-up ul li a{
+	 color: #e44d3a;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+
+}
+.ngan-title-profile{
+	float: left;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+}
+.ngan-title-profile p{
+	padding: 10px;
+	font-weight: 600; 
+	font-size: 15px;
+	color: #000;
+	float: left;
+}
+.ngan-title-profile input{
+	padding-top: 15px;
+	font-weight: 500; 
+	font-size: 16px;
+	color: #e44d3a;
+	float: right;
+	background: no-repeat;
+	border: none;
+	padding-right: 10px;
+}
+.ngan-content{
+	background: #fff;
+}
+.ngan-radio label{
+	padding-left: 20px;
+}
+label{
+	padding: 10px;
+}
+.ngan-button{
+	background: no-repeat;
+	border: none;
+	padding-left: 20px;
+}
+.ngan-title1{
+	text-align: center;
+	padding: 15px;
+	font-weight: 600;
+	font-size: 15px;
+}
+.ngan-title1 small{
+	text-align: center;
+	padding: 10px;
+	color: #e44d3a;
+}
+.btn {
+  border: none;
+  font-size: 20px;
+  text-align: center;
+}
+.btn1 {
+  border: none;
+  font-size: 20px;
+  text-align: center;
+  padding: 20px;
+}
+.them{
+	padding-bottom: 20px;
+	text-align: center;
+}
+.back-to-top {
+    position: fixed;
+    top: auto;
+    left: auto;
+    right: 15px;
+    bottom: 15px;
+    font-size: 32px;
+    opacity: 0.8;
+    z-index: 9999;
+    cursor: pointer;
+
+}
+
+.back-to-top:hover {
+    opacity: 1;
+}
+.back-to-top::after {
+  content: "\f077";
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+  line-height: 50px;
+  color: #e44d3a;
+}
+.modal-body{
+	text-align: center;
+}
+.modal-body input{
+ width: 45px;
+ height: 45px;
+ text-align: center;
+}
+
