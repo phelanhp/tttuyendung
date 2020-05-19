@@ -23,12 +23,14 @@ class UserController extends Controller{
     }
 
     public function getRecruiterIndex(){
-        $data = User::where('group_id','1')->get();
+        $group = UserGroup::where('key','nha-tuyen-dung')->first();
+        $data = User::where('group_id',$group->id)->get();
         return view('User::user.recruiter_list',compact('data'));
     }
 
     public function getStudentIndex(){
-        $data = User::where('group_id','2')->get();
+        $group = UserGroup::where('key','sinh-vien')->first();
+        $data = User::where('group_id',$group->id)->get();
         return view('User::user.student_list',compact('data'));
     }
 

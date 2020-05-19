@@ -17,7 +17,7 @@ class CreateRecruitersTable extends Migration{
             $table->string('company');
             $table->string('address');
             $table->string('founding');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('category_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->timestamp('deleted_at')->nullable();

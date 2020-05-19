@@ -12,7 +12,7 @@
      	});
 
          Route::prefix('user')->group(function(){
-             Route::get('recruiter_category-list','UserController@getRecruiterIndex')->name('user.get.recruiter_list');
+             Route::get('recruiter-list','UserController@getRecruiterIndex')->name('user.get.recruiter_list');
              Route::get('student-list','UserController@getStudentIndex')->name('user.get.student_list');
              Route::get('create','UserController@getCreate')->name('user.get.create');
              Route::post('create','UserController@postCreate')->name('user.post.create');

@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->text('address');
             $table->integer('identity_card_no');
-            $table->integer('avatar');
+            $table->string('avatar')->nullable();
             $table->integer('sex')->default(0);
             $table->text('hobby')->nullable();
             $table->string('status');
