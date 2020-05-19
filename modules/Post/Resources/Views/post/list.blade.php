@@ -101,6 +101,7 @@ $(document).ready(function () {
             type: 'GET',
             cache: false,
         });
+        $(this).parents('tr').remove();
     })
 })
 </script>

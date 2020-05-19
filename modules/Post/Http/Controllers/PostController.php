@@ -63,6 +63,6 @@ class PostController extends Controller{
     public function commentDelete($id){
         $comment = PostComment::find($id);
         $comment->delete();
-        return true;
+        return response()->json();
     }
 }
