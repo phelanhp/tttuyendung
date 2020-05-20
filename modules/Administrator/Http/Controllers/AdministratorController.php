@@ -29,7 +29,6 @@ class AdministratorController extends Controller{
     }
 
     public function postCreate(Request $request){
-        $this->validate($request,$this->admin->create_rules,$this->admin->create_messages);
         $data = new Admin($request->all());
         $data['password'] = bcrypt($request->password);
         if($request->file('avatar')){
@@ -48,7 +47,6 @@ class AdministratorController extends Controller{
     }
 
     public function postEdit(Request $request, $id){
-        $this->validate($request,$this->admin->edit_rules,$this->admin->edit_messages);
         $data = Admin::find($id);
         unset($data['password']);
         $data->update($request->all());

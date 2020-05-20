@@ -34,7 +34,7 @@ use PPM\User\Entities\UserGroup;
             </div>
             <div class="form-group" style="margin-bottom: 22.4px;">
                 <label for="sex">Giới tính</label><br>
-                <div class="row">
+                <div class="row ml-3 input-group">
                     <div class="col-md-6">
                         <input type="radio" @if(isset($data) && $data->sex == 1 ) checked @endif id="sex" name="sex" value="1"> Nam
                     </div>
@@ -82,11 +82,11 @@ use PPM\User\Entities\UserGroup;
         </div>
         <div class="col-md-6">
             <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" value="{{ $data->username ?? NULL }}">
+            <input type="text" class="form-control" id="username" name="username" value="{{ $data->username ?? NULL }}">
         </div>
         <div class="col-md-6">
             <label for="username">Password</label>
-            <input type="password" class="form-control" name="password" value="">
+            <input type="password" class="form-control" id="password" name="password" value="">
         </div>
         <div class="col-md-12">
             <hr>
@@ -112,3 +112,14 @@ use PPM\User\Entities\UserGroup;
         <button type="reset" class="btn btn-default">Hủy</button>
     </div>
 </form>
+@push('js')
+    {!! JsValidator::formRequest('PPM\User\Http\Requests\UserValidation') !!}
+    <script>
+        $(document).ready(function(){
+            $('#code_id').change(function () {
+                $('#username').val($(this).val());
+            })
+        })
+    </script>
+@endpush
+

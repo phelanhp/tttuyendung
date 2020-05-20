@@ -8,14 +8,16 @@ use PPM\User\Entities\UserGroup;
 
 
 class PostCategoryController extends Controller{
+
     /**
-     * Create a new authentication controller instance.
+     * PostCategoryController constructor.
      *
-     * @return void
+     * @param \PPM\Post\Entities\PostCategory $cate
      */
-    public function __construct(){
+    public function __construct(PostCategory $cate){
         # parent::__construct();
         $this->middleware('auth:admins');
+        $this->model = $cate;
     }
 
     public function getIndex(){
@@ -27,6 +29,12 @@ class PostCategoryController extends Controller{
         return view('Post::post_category.create');
     }
 
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function postCreate(Request $request){
         $data = new PostCategory($request->all());
         if($data->save()){

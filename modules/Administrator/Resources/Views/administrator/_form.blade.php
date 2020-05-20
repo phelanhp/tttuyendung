@@ -11,14 +11,14 @@
                 <input type="text" class="form-control" name="phone" value="{{ $data->phone ?? old('phone') }}">
             </div>
             @if(!isset($data))
-            <div class="form-group">
-                <label for="validateSelect">Tên đăng nhập</label>
-                <input type="text" class="form-control" name="username" value="{{ $data->name ?? old('username') }}">
-            </div>
-            <div class="form-group">
-                <label for="validateSelect">Mật khẩu</label>
-                <input type="password" class="form-control file-upload" name="password" value="{{ old('password') }}">
-            </div>
+                <div class="form-group">
+                    <label for="validateSelect">Tên đăng nhập</label>
+                    <input type="text" class="form-control" name="username" value="{{ $data->name ?? old('username') }}">
+                </div>
+                <div class="form-group">
+                    <label for="validateSelect">Mật khẩu</label>
+                    <input type="password" class="form-control file-upload" name="password" value="{{ old('password') }}">
+                </div>
             @endif
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">@if(!isset($data)) Thêm @else Sửa @endif</button>
@@ -30,11 +30,14 @@
                 <label for="validateSelect">Hình ảnh</label>
                 {!! upload_file('avatar', "old('avatar')") !!}
                 @if(isset($data))
-                <div class="w-50">
-                    <img src="{{ asset($data->avatar) }}" class="w-75" alt="Profile Picture" />
-                </div> <!-- /.thumbnail -->
+                    <div class="w-50">
+                        <img src="{{ asset($data->avatar) }}" class="w-75" alt="Profile Picture"/>
+                    </div> <!-- /.thumbnail -->
                 @endif
             </div>
         </div>
     </div>
 </form>
+@push('js')
+{!! JsValidator::formRequest('PPM\Administrator\Http\Requests\AdminValidation') !!}
+@endpush

@@ -1,5 +1,5 @@
 @extends('Dashboard::backend.layout.master')
-@include('Category::recruiter_category.breadcumb')
+@include('Category::major.breadcumb')
 
 @section('content')
     <div id="content-container">
@@ -35,7 +35,7 @@
                             <td>{{ $val->description  }}</td>
                             <td>
                                 <a href="{{ route('major.get.edit',$val->id) }}"><i class="fas fa-edit" style="font-size: 20px; margin-right: 20px"></i></a>
-                                <a href="#"><i class="fas fa-trash" style="font-size: 20px"></i></a>
+                                <a href="{{ route('major.get.delete',$val->id) }}"><i class="fas fa-trash" style="font-size: 20px"></i></a>
                             </td>
                         </tr>
                     @endforeach

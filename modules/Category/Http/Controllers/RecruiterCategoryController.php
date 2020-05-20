@@ -52,4 +52,10 @@ class RecruiterCategoryController extends Controller{
         $request->session()->flash('danger','Không thể chỉnh sửa');
         return redirect()->back();
     }
+
+    public function delete($id){
+        $data = RecruiterCategory::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
 }

@@ -14,12 +14,12 @@ class Admin extends Model
 	protected $primaryKey = 'id';
 
     protected $dates = ['deleted_at'];
-    
+
     protected $guarded = [];
 
     public $timestamps = true;
 
-    public $create_rules = [
+    public $rules = [
         'name'         => 'required',
         'username'         => 'required',
         'password'      => 'required',
@@ -29,10 +29,6 @@ class Admin extends Model
         'name.required'         => 'Tên không được để trống!',
         'username.required'     => 'Username không được để trống!',
         'password.required'     => 'Chưa nhập mật khẩu!'
-    ];
-
-    public $edit_rules = [
-        'name'         => 'required',
     ];
 
     public $edit_messages = [
@@ -46,7 +42,7 @@ class Admin extends Model
     public function getTitle(){
         return $this->name;
     }
-   	
+
     public function group(){
         return $this->belongsTo(\PPM\Administrator\Entities\Admin_group::class,'group_id','id');
     }

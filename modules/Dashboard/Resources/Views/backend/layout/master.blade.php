@@ -66,7 +66,7 @@
 <script src="{{ asset('backend/js/plugins/icheck/jquery.icheck.min.js') }}"></script>
 <script src="{{ asset('backend/js/plugins/tableCheckable/jquery.tableCheckable.js') }}"></script>
 
-<script src="{{ asset('backend/js/App.js') }}"></script>
+<script src="{{ asset('backend/js/App.js') }}" defer></script>
 
 <script src="{{ asset('backend/js/libs/raphael-2.1.2.min.js') }}"></script>
 <script src="{{ asset('backend/js/plugins/morris/morris.min.js') }}"></script>
@@ -98,6 +98,7 @@
 <script src="{{ asset('backend/ckeditor/ckeditor.js') }}"></script>
 
 <script src="{{ asset('backend/js/custom.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 @stack('js')
 
 </body>

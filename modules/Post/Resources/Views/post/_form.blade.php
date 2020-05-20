@@ -35,7 +35,10 @@
             </div>
         </div>
         <div class="col-md-8">
-            <textarea name="content" id="ckeditor" cols="30" rows="10">{{ $data->content ?? old('content')  }}</textarea>
+            <div class="form-group">
+                <label for="ckeditor" id="post-content">Nội dung</label>
+                <textarea name="content" class="form-control" id="ckeditor" cols="30" rows="10">{{ $data->content ?? old('content')  }}</textarea>
+            </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
@@ -55,6 +58,7 @@
     </div>
 </form>
 @push('js')
+    {!! JsValidator::formRequest('PPM\Post\Http\Requests\PostValidation') !!}
     <script>
         CKEDITOR.replace('ckeditor');
     </script>

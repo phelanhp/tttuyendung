@@ -25,3 +25,7 @@
         </div>
     </div>
 </form>
+@push('js')
+    {!! JsValidator::formRequest('PPM\Category\Http\Requests\CategoryValidation') !!}
+@endpush
+

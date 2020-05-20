@@ -1,4 +1,5 @@
-<form action="" method="post">
+
+<form action="" method="post" id="#form-post-category">
     {{ csrf_field() }}
     <div class="row">
         <div class="col-md-6">
@@ -25,3 +26,6 @@
         </div>
     </div>
 </form>
+@push('js')
+{!! JsValidator::formRequest('PPM\Post\Http\Requests\PostCategoryValidation') !!}
+@endpush

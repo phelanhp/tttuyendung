@@ -1,9 +1,9 @@
 <div class="form-group">
-    <label for="phone">Company</label>
+    <label for="phone">Tên công ty</label>
     <input type="text" id="company" name="company" class="form-control" value="{{ $recruiter->company ?? old('company')  }}">
 </div>
 <div class="form-group">
-    <label for="email">Company address</label>
+    <label for="email">Địa chỉ công ty</label>
     <input type="text" id="email" name="company_address" class="form-control" value="{{ $recruiter->address ?? old('address')  }}">
 </div>
 <div class="form-group">

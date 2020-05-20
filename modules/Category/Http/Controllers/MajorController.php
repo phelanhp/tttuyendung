@@ -52,4 +52,10 @@ class MajorController extends Controller{
         $request->session()->flash('danger','Không thể chỉnh sửa');
         return redirect()->back();
     }
+
+    public function delete($id){
+        $data = Major::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
 }

@@ -7,6 +7,7 @@
             Route::post('create','RecruiterCategoryController@postCreate')->name('recruiter_category.post.create');
             Route::get('edit/{id}','RecruiterCategoryController@getEdit')->name('recruiter_category.get.edit');
             Route::post('edit/{id}','RecruiterCategoryController@postEdit')->name('recruiter_category.post.edit');
+            Route::get('delete/{id}','RecruiterCategoryController@delete')->name('recruiter_category.get.delete');
         });
 
         Route::prefix('major')->group(function(){
@@ -15,6 +16,7 @@
             Route::post('create','MajorController@postCreate')->name('major.post.create');
             Route::get('edit/{id}','MajorController@getEdit')->name('major.get.edit');
             Route::post('edit/{id}','MajorController@postEdit')->name('major.post.edit');
+            Route::get('delete/{id}','MajorController@delete')->name('major.get.delete');
         });
     });
 

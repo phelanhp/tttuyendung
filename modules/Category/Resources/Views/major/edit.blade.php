@@ -1,6 +1,6 @@
 @extends('Dashboard::backend.layout.master')
 
-@include('Category::recruiter_category.breadcumb')
+@include('Category::major.breadcumb')
 
 @section('content')
     <div class="container">

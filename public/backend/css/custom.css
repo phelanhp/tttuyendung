@@ -93,3 +93,12 @@ form, .breadcrumb{
     max-width: 1000px;
     margin: 7.75rem auto;
 }
+
+.invalid-feedback{
+    color: red;
+    font-size: 14px;
+}
+
+.is-invalid{
+    color: red;
+}

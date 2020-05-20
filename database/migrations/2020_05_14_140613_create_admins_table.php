@@ -17,7 +17,7 @@ class CreateAdminsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('phone');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->string('username');
             $table->string('password')->default('$2y$10$Pji4MA/QQD1GTRPpRs2IAOTGfQUelsUGzYlWMDM.iZKHxqSMXRlUu');
             $table->integer('status')->default(1);
