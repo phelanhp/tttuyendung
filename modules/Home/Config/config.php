@@ -1,5 +1,5 @@
 <?php
 return [
 	'status' => true,
-	'modules' => 'user_group'
+	'modules' => 'home'
 ];

@@ -1,10 +1,7 @@
 <?php
-$namespace = 'PPM\Sample\Http\Controllers';
+$namespace = 'PPM\Home\Http\Controllers';
 Route::group(
-    ['module'=>'Sample', 'namespace' => $namespace,'middleware' => ['web']],
+    ['module'=>'Home', 'namespace' => $namespace,'middleware' => ['web']],
     function() {
-
     	require('Routes\web.php');
-    	require('Routes\admin.php');
-    	require('Routes\api.php');
 });

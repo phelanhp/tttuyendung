@@ -1,0 +1,1 @@
+<a href="{{ route('get.recruiter.detail') }}">Nha tuyen dung</a>

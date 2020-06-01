@@ -1,6 +1,6 @@
 <?php
 
-    Route::get('index','BaseController@index');
+    Route::get('sample','BaseController@index');
 
 	// Route::prefix('admin')->group(function(){
 	// 	Route::prefix('base')->group(function(){

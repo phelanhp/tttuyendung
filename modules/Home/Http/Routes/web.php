@@ -1,8 +1,8 @@
 <?php
-    	Route::prefix('web')->group(function(){
-			Route::prefix('base')->group(function(){
-        		Route::get('index','BaseController@index');
-        	});
-    	});
 
+Route::get('/','HomeController@getIndex');
 
+Route::prefix('recruiter')->group(function(){
+	Route::get('/','HomeController@getRecruiterIndex')->name('get.recruiter.index');
+	Route::get('/detail','HomeController@getRecruiterDetail')->name('get.recruiter.detail');	
+});
