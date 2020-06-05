@@ -12,7 +12,7 @@
         </div>
       </div>
     </section>
-		
+
 		<section class="ftco-section ftco-degree-bg">
       <div class="container">
         <div class="row">
@@ -48,7 +48,7 @@
             <p><b>Ngôn ngữ hồ sơ:</b> Tiếng Việt</p>
             <br>
             <p><a href="#" class="btn btn-primary">Ứng tuyển ngay</a>
-              <a href="#" class="btn btn-primary">Yêu thích</a></p> 
+              <a href="#" class="btn btn-primary">Yêu thích</a></p>
 
             <div class="tag-widget post-tag-container mb-5 mt-5">
               <div class="tagcloud">
@@ -143,7 +143,7 @@
                 </li>
               </ul>
               <!-- END comment-list -->
-              
+
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">Viết bình luận</h3>
                 <form action="#" class="p-5 bg-light">

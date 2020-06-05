@@ -3,15 +3,17 @@
 namespace PPM\Home\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use PPM\Post\Entities\Post;
 
 class HomeController extends Controller{
 
 	public function getIndex(){
-		return view('Home::home.index');
+	    $posts = Post::orderBy('created_at','DESC')->get();
+		return view('Home::home.index', compact('posts'));
 	}
 
 	public function getContact(){
-		return view('Home::Contact.contact');
+		return view('Home::contact.contact');
 	}
 
 }

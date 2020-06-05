@@ -4,6 +4,7 @@ namespace PPM\User\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use PPM\Post\Entities\Post;
 
 class User extends Model
 {
@@ -24,6 +25,13 @@ class User extends Model
     }
     public function getName(){
         return $this->name;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts(){
+        return $this->hasMany(Post::class,'post_id');
     }
 
 }

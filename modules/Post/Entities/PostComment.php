@@ -18,10 +18,16 @@ class PostComment extends Model
 
     public $timestamps = true;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function post(){
         return $this->belongsTo(Post::class,'post_id','id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user(){
         return $this->belongsTo(User::class,'user_id','id');
     }

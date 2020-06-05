@@ -1,4 +1,4 @@
-*<header>
+<header>
 	<div class="wrap">
 			<div class="container">
 				<div class="row justify-content-between">
