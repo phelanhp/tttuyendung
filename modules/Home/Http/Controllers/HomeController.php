@@ -10,12 +10,9 @@ class HomeController extends Controller{
 		return view('Home::home.index');
 	}
 
-	public function getRecruiterIndex(){
-		return view('Home::recruiter.index');
-	}
-
-	public function getRecruiterDetail(){
-		return view('Home::recruiter.detail');
+	public function getContact(){
+		return view('Home::Contact.contact');
 	}
 
 }
+?>

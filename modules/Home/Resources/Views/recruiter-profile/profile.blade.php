@@ -1,14 +1,14 @@
 @extends('Home::layout.master')
 
 @section('content')
-<section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+	<section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/'images/bg_2.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end">
           <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="{{ route('get.home.index') }}">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span> <span>Nhà Tuyển Dụng <i class="ion-ios-arrow-forward"></i></span></p>
+          	<p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span> <span>Nhà Tuyển Dụng <i class="ion-ios-arrow-forward"></i></span></p>
             <h1 class="mb-0 bread">Profile Nhà Tuyển Dụng</h1>
-            <a href="#"><button type="button" class="btn btn-primary" ><i class='fa fa-minus-circle'></i> Report</button></a>
+            <a href="{{ route('get.recruiter-profile.edit') }}"><button type="button" class="btn btn-primary" ><i class='fas fa-user-edit'></i> Chỉnh sửa</button></a>
           </div>
         </div>
       </div>
@@ -18,7 +18,7 @@
         <div class="row">
           <div class="col-lg-8 ftco-animate">
           	<p>
-              <img src="/frontend/images/image_1.jpg" alt="" class="img-fluid">
+              <img src="images/image_1.jpg" alt="" class="img-fluid">
             </p>
             <h2 class="mb-3">Tên Nhà Tuyển Dụng</h2>
             <h3 class="mb-3 mt-5">Thông tin nhà tuyển dụng</h3>
@@ -26,6 +26,7 @@
             <h5 class="mb-3 mt-5">Liên Hệ</h5>
             <p><b>Người phụ trách liên hệ:</b> ...... </p>
             <p><b>Địa chỉ công ty:</b> ..... </p>
+             <p><b>Ngày thành lập:</b> ..... </p>
             <p><b>Email:</b> ...... </p>
             <p><b>Số Điện Thoại:</b> ..... </p>
             </div>
@@ -56,7 +57,7 @@
             <div class="sidebar-box ftco-animate">
               <h3>Tin tuyển dụng gần đây</h3>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(/frontend/images/image_1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url('/frontend/images/image_1.jpg');"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div class="meta">
@@ -67,7 +68,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(/frontend/images/image_2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url('/frontend/images/image_2.jpg');"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div class="meta">
@@ -78,7 +79,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(/frontend/images/image_3.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url('/frontend/images/image_3.jpg');"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div class="meta">
@@ -106,5 +107,4 @@
         </div>
       </div>
     </section> <!-- .section -->
-
 @endsection
