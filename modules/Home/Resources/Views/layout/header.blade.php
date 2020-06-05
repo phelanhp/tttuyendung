@@ -1,4 +1,4 @@
-<header>
+*<header>
 	<div class="wrap">
 			<div class="container">
 				<div class="row justify-content-between">
@@ -9,8 +9,8 @@
                   Cá nhân
                 </button>
                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                  <a class="dropdown-item" href="profile-ntd.html">Profile</a>
-                  <a class="dropdown-item" href="news-ntd.html">Quản Lý Tin Tuyển Dụng</a>
+                  <a class="dropdown-item" href="{{ route('get.recruiter-profile.profile') }}">Profile</a>
+                  <a class="dropdown-item" href="{{ route('get.news-manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
                 </div>
               </div>
               <div class="btn-group social-media btn-dangxuat" role="group" aria-label="Basic example">
@@ -35,12 +35,12 @@
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav m-auto">
-	        	<li class="nav-item active"><a href="index.html" class="nav-link">Trang Chủ</a></li>
+	        	<li class="nav-item active"><a href="{{ route('get.home.index') }}" class="nav-link">Trang Chủ</a></li>
 	        	<!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
 	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li> -->
 	          <li class="nav-item"><a href="{{ route('get.recruiter.index') }}" class="nav-link">Nhà Tuyển Dụng</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Tin Tuyển Dụng</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Liên Hệ</a></li>
+	          <li class="nav-item"><a href="{{ route('get.news.index') }}" class="nav-link">Tin Tuyển Dụng</a></li>
+	          <li class="nav-item"><a href="{{ route('get.contact.index') }}" class="nav-link">Liên Hệ</a></li>
 	        </ul>
 	      </div>
 	    </div>
