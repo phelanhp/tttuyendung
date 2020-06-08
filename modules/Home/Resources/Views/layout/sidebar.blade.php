@@ -28,7 +28,7 @@
                     <div><a href="#">{{ date_format($date,'d-m-Y') }}</a></div>
                     <div><a href="#">{{ $post->user->name }}</a></div>
                     <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-                
+                </div>
             </div>
         </div>
         @endforeach
