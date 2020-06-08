@@ -17,7 +17,7 @@
 
     <section class="ftco-section">
         <div class="container">
-            <div class="row d-flex">
+            <div class="row mt-5 d-flex">
                 @foreach($posts as $post)
                     <div class="col-md-4">
                         <div class="blog-entry align-self-stretch">
@@ -25,6 +25,7 @@
                             </a>
                             <div class="text mt-3">
                                 <div class="meta mb-2">
+
                                     <?php $date = date_create($post->created_at); ?>
                                     <div><a href="#">{{ date_format($date,'d-m-Y') }}</a></div>
                                     <div><a href="#">{{ $post->user->name }}</a></div>
@@ -34,17 +35,20 @@
                                     </div>
                                 </div>
                                 <h3 class="heading">
-                                    <a href="{{ route('get.news.detail',$post->id) }}">{{ $post->name }}</a>
+                                    <a href="{{ route('get.news.detail',$post->id) }}">{{ $post->content }}</a>
                                 </h3>
                             </div>
                         </div>
                     </div>
                 @endforeach
+                @include('Home::layout.sidebar')
             </div>
+
             <div class="row mt-5">
                 <div class="col text-center">
                     {{ $posts->render('vendor.pagination.pagination_custom') }}
                 </div>
+
             </div>
         </div>
     </section>
