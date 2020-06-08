@@ -3,6 +3,7 @@ namespace PPM\Home\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use PPM\Post\Entities\Post;
+use PPM\User\Entities\User;
 
 class NewsController extends Controller{
 	public function getNewIndex(){
@@ -11,14 +12,15 @@ class NewsController extends Controller{
 	}
 	public function getNewsDetail($id){
         $post = Post::find($id);
-		return view('Home::news.detail',compact('post'));
+        $users = User::get();
+		return view('Home::news.detail',compact('post','users'));
 	}
 	public function getNewList(){
 		return view('Home::news-manager.list');
 	}
 	public function getNewsCreate(){
 		return view('Home::news-manager.create');
-	}
+	}	
 }
 
  ?>

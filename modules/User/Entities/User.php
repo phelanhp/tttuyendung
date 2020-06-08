@@ -33,5 +33,10 @@ class User extends Model
     public function posts(){
         return $this->hasMany(Post::class,'post_id');
     }
-
+    public function comments(){
+        return $this->hasMany(PostComment::class,'user_id','id');
+    }
+    public function recruiter(){
+        return $this->hasOne(Recruiter::class, 'user_id');
+    }
 }

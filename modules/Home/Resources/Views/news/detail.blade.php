@@ -18,34 +18,13 @@
         <div class="row">
           <div class="col-lg-8 ftco-animate">
           	<p>
-              <img src="/frontend/images/image_1.jpg" alt="" class="img-fluid">
+              <img src="{{asset($post->image)}}" alt="" class="img-fluid">
             </p>
-            <h2 class="mb-3">Tuyển dụng nhân viên thiết kế giao diện Công ty công nghệ AAA</h2>
-            <h5 class="mb-3 mt-5">Thông tin tuyển dụng</h5>
-            <p><b>Kinh nghiệm:</b> Không yêu cầu</p>
-            <p><b>Yêu cầu bằng cấp:</b> Đại Học</p>
-            <p><b>Hình thức làm việc:</b> Toàn thời gian</p>
-            <p><b>Chức vụ:</b> Nhân viên</p>
-            <p><b>Yêu cầu giới tính:</b> Nam, nữ</p>
-            <p><b>Số lượng:</b> 3</p>
+            <h2 class="mb-3">{{$post->name}}</h2>
+            <h5 class="mb-3 mt-5">{{$post->description}}</h5>
+            <p><b>{{$post->content}}</p>
             <hr>
-            <h5 class="mb-3 mt-5">Mô tả công việc</h5>
-            <p>Thiết kế giao diện như bản vẽ có sẵn</p>
-            <p>Đảm bảo thống nhất với nhận diện thương hiệu, retouch/chỉnh sửa hình ảnh sản phẩm của công ty</p>
-            <hr>
-            <h5 class="mb-3 mt-5">Quyền lợi</h5>
-            <p>Công ty đóng Bảo hiểm Y Tê, Bảo Hiểm Xã hội.</p>
-            <p> Phụ cấp: team building, nghỉ hè, tiền lương tháng 13, thưởng theo hiệu quả dự án.</p>
-            <hr>
-            <h5 class="mb-3 mt-5">Yêu cầu công việc</h5>
-            <p>Web: Thành thạo Nodejs hoặc PHP(laravel)</p>
-            <p>Thành thạo framework boostrap</p>
-            <p>Kỹ năng mềm: Nhiệt tình, ham học hỏi, cởi mở trong giao tiếp</p>
-            <h5 class="mb-3 mt-5">Thông tin liên hệ</h5>
-            <p><b>Người liên hệ:</b> Chị Hoa</p>
-            <p><b>Địa chỉ công ty:</b> Địa chỉ: Số 3A, Đường số 8, Khu công nghiệp Cần Thơ, TP.Cần Thơ</p>
-            <p><b>Hạn nộp hồ sơ:</b> 20/06/2020</p>
-            <p><b>Ngôn ngữ hồ sơ:</b> Tiếng Việt</p>
+            <p><b>Trang Thai :{{$post->status}}</p>
             <br>
             <p><a href="#" class="btn btn-primary">Ứng tuyển ngay</a>
               <a href="#" class="btn btn-primary">Yêu thích</a></p>
@@ -62,86 +41,21 @@
 
             <div class="pt-5 mt-5">
               <h3 class="mb-5">Bình luận</h3>
+              @foreach($users as $user)
               <ul class="comment-list">
                 <li class="comment">
                   <div class="vcard bio">
                     <img src="images/person_1.jpg" alt="Image placeholder">
                   </div>
                   <div class="comment-body">
-                    <h3>John Doe</h3>
-                    <div class="meta">October 18, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
-
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>John Doe</h3>
-                    <div class="meta">October 18, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-
-                  <ul class="children">
-                    <li class="comment">
-                      <div class="vcard bio">
-                        <img src="images/person_1.jpg" alt="Image placeholder">
-                      </div>
-                      <div class="comment-body">
-                        <h3>John Doe</h3>
-                        <div class="meta">October 18, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                      </div>
-
-
-                      <ul class="children">
-                        <li class="comment">
-                          <div class="vcard bio">
-                            <img src="images/person_1.jpg" alt="Image placeholder">
-                          </div>
-                          <div class="comment-body">
-                            <h3>John Doe</h3>
-                            <div class="meta">October 18, 2018 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                          </div>
-
-                            <ul class="children">
-                              <li class="comment">
-                                <div class="vcard bio">
-                                  <img src="images/person_1.jpg" alt="Image placeholder">
-                                </div>
-                                <div class="comment-body">
-                                  <h3>John Doe</h3>
-                                  <div class="meta">October 18, 2018 at 2:21pm</div>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                  <p><a href="#" class="reply">Reply</a></p>
-                                </div>
-                              </li>
-                            </ul>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>John Doe</h3>
-                    <div class="meta">October 18, 2018 at 2:21pm</div>
+                    <h3>{{$user->name}}</h3>
+                    <div class="meta">{{$user->comments->created_at}}</div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
                     <p><a href="#" class="reply">Reply</a></p>
                   </div>
                 </li>
               </ul>
+              @endforeach
               <!-- END comment-list -->
 
               <div class="comment-form-wrap pt-5">
