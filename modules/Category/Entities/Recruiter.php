@@ -24,7 +24,7 @@ class Recruiter extends Model
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->BelongsTo(User::class,'user_id');
     }
 
 }

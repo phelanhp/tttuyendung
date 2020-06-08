@@ -26,24 +26,14 @@
                             <h4>{{ $recruiter->company }}</h4>
                             <p>{{ $recruiter->address }}
                                 <br> SĐT: 0883245689 - 0889345267 <br> Email: itaaa@gmail.com</p>
-                            <p><a href="{{ route('get.recruiter.detail') }}" class="btn btn-primary">Xem chi tiết</a>
+                            <p><a href="{{ route('get.recruiter.detail',$recruiter->id) }}" class="btn btn-primary">Xem chi tiết</a>
                             </p>
                         </div>
                     </div>
                     @endforeach
                     <div class="row mt-5">
-                        <div class="col">
-                            <div class="block-27">
-                                <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
-                                </ul>
-                            </div>
+                        <div class="col text-center">
+                            {{ $recruiters->render('vendor.pagination.pagination_custom') }}
                         </div>
                     </div>
 

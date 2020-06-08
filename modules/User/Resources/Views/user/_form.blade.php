@@ -92,7 +92,13 @@ use PPM\User\Entities\UserGroup;
             <hr>
         </div>
         <div class="col-md-8">
-            <label for="hobby">Sở thích</label>
+            <label for="hobby">
+                @if (Request::get('group') === 'ntd')
+                    Giới thiệu
+                @else
+                    Sở thích
+                @endif
+            </label>
             <textarea name="hobby" class="form-control" id="hobby" cols="30" rows="10">{{ $data->hobby ?? NULL }}</textarea>
         </div>
         <div class="col-md-4">

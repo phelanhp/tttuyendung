@@ -18,12 +18,14 @@
         <div class="row">
           <div class="col-lg-8 ftco-animate">
           	<p>
-              <img src="{{ asset($post->image) }}" alt="" class="img-fluid">
+              <img src="{{asset($post->image)}}" alt="" class="img-fluid">
             </p>
-            <h2 class="mb-3">{{$post->description}}</h2>
-            <h5 class="mb-3 mt-5">Thông tin tuyển dụng</h5>
-            <p><b>Kinh nghiệm:</b> {{$post->content}}</p>
-            
+            <h2 class="mb-3">{{$post->name}}</h2>
+            <h5 class="mb-3 mt-5">{{$post->description}}</h5>
+            <p><b>{{$post->content}}</p>
+            <hr>
+            <p><b>Trang Thai :{{$post->status}}</p>
+            <br>
             <p><a href="#" class="btn btn-primary">Ứng tuyển ngay</a>
               <a href="#" class="btn btn-primary">Yêu thích</a></p>
 
@@ -39,6 +41,7 @@
 
             <div class="pt-5 mt-5">
               <h3 class="mb-5">Bình luận</h3>
+              @foreach($users as $user)
               <ul class="comment-list">
                 @foreach($postComments as $postComment)
                 <li class="comment">
@@ -54,6 +57,7 @@
                   </div>
                 </li>@endforeach
               </ul>
+              @endforeach
               <!-- END comment-list -->
 
               <div class="comment-form-wrap pt-5">

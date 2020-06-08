@@ -18,14 +18,14 @@
         <div class="row">
           <div class="col-lg-8 ftco-animate">
           	<p>
-              <img src="/frontend/images/image_1.jpg" alt="" class="img-fluid">
+              <img src="{{asset($recruiters->image)}}" alt="" class="img-fluid">
             </p>
-            <h2 class="mb-3">Tên Nhà Tuyển Dụng</h2>
+            <h2 class="mb-3">{{$recruiters->company}}</h2>
             <h3 class="mb-3 mt-5">Thông tin nhà tuyển dụng</h3>
             <div>
             <h5 class="mb-3 mt-5">Liên Hệ</h5>
-            <p><b>Người phụ trách liên hệ:</b> ...... </p>
-            <p><b>Địa chỉ công ty:</b> ..... </p>
+            <p><b>Người phụ trách liên hệ:</b>&emsp;{{ $recruiters->user->name }}</p>
+            <p><b>Địa chỉ công ty:</b>&emsp; {{ $recruiters->address }}</p>
             <p><b>Email:</b> ...... </p>
             <p><b>Số Điện Thoại:</b> ..... </p>
             </div>

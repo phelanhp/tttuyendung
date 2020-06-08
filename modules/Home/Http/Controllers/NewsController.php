@@ -4,6 +4,8 @@ namespace PPM\Home\Http\Controllers;
 use App\Http\Controllers\Controller;
 use PPM\Post\Entities\Post;
 use PPM\Post\Entities\PostComment;
+use PPM\User\Entities\User;
+
 class NewsController extends Controller{
 	public function getNewIndex(){
 	    $posts = Post::orderBy('created_at','DESC')->paginate(6);
@@ -19,7 +21,7 @@ class NewsController extends Controller{
 	}
 	public function getNewsCreate(){
 		return view('Home::news-manager.create');
-	}
+	}	
 }
 
  ?>
