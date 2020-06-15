@@ -41,32 +41,16 @@ return [
             'provider' => 'users',
         ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'users',
-        ],
-
-
         /* Quan tri */
         'admins' => [
             'driver' => 'session',
             'provider' => 'admins',
         ],
 
-        'administrator-api' => [
-            'driver' => 'token',
-            'provider' => 'administrators',
-        ],
-
         /* Thanh vien */
-        'member' => [
+        'user' => [
             'driver' => 'session',
-            'provider' => 'members',
-        ],
-
-        'member-api' => [
-            'driver' => 'token',
-            'provider' => 'members',
+            'provider' => 'users',
         ],
     ],
 
@@ -96,11 +80,6 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
-        ],
-
-        'members' => [
-            'driver' => 'eloquent',
-            'model' => App\Member::class,
         ],
 
         // 'users' => [
@@ -141,8 +120,8 @@ return [
 
         /* Thanh vien */
 
-        'member' => [
-            'provider' => 'members',
+        'user' => [
+            'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
         ],

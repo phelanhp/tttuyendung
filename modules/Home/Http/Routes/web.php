@@ -1,5 +1,10 @@
 <?php
-Route::get('/login','HomeController@getLogin')->name('get.login.index');
+
+Route::get('/login','LoginController@getLogin')->name('get.login.index');
+Route::post('/login','LoginController@postLogin')->name('post.login.index');
+Route::get('/logout','LoginController@logout')->name('get.logout.index');
+
+
 Route::get('/','HomeController@getIndex')->name('get.home.index');
 Route::get('/contact','HomeController@getContact')->name('get.contact.index');
 Route::prefix('recruiter')->group(function(){
@@ -14,3 +19,5 @@ Route::prefix('news')->group(function(){
 	Route::get('/list','NewsController@getNewList')->name('get.news-manager.list');
 	Route::get('/create','NewsController@getNewsCreate')->name('get.news-manager.create');
 });
+
+Route::post('/comment','NewsController@postComment')->name('post.comment');

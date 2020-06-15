@@ -4,7 +4,9 @@ namespace PPM\User\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use PPM\Category\Entities\Recruiter;
 use PPM\Post\Entities\Post;
+use PPM\Post\Entities\PostComment;
 
 class User extends Model
 {
@@ -31,7 +33,7 @@ class User extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function posts(){
-        return $this->hasMany(Post::class,'post_id');
+        return $this->hasMany(Post::class,'user_id');
     }
 
     public function comments(){

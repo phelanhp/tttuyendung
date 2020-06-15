@@ -31,4 +31,11 @@ class PostComment extends Model
     public function user(){
         return $this->belongsTo(User::class,'user_id','id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function children(){
+        return $this->hasMany(PostComment::class,'parent_id','id');
+    }
 }

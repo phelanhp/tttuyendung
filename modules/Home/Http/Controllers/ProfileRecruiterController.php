@@ -1,15 +1,25 @@
-<?php 
+<?php
 namespace PPM\Home\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use PPM\Post\Entities\Post;
+use PPM\User\Entities\User;
+
 class ProfileRecruiterController extends Controller{
 	public function getRecruiterProfile(){
-		$posts = Post::orderBy('created_at','DESC')->paginate(3);
-		return view('Home::recruiter-profile.profile', compact('posts'));
+	    if(Auth::guard('user')->check()){
+            $user = User::find(Auth::guard('user')->id());
+            return view('Home::recruiter-profile.profile', compact('user'));
+        }
+        return redirect()->route('get.login.index');
 	}
 	public function getRecruiterEdit(){
-		return view('Home::recruiter-profile.edit');
+        if(Auth::guard('user')->check()){
+            $user = User::find(Auth::guard('user')->id());
+            return view('Home::recruiter-profile.edit',compact('user'));
+        }
+        return redirect()->route('get.login.index');
 	}
 }
 

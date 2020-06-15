@@ -12,15 +12,15 @@
 	<meta name="author" content="" />
 
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,800italic,400,600,800" type="text/css">
-	<link rel="stylesheet" href="{{ asset('backend/css/font-awesome.min.css') }}" type="text/css" />		
-	<link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css') }}" type="text/css" />	
-	<link rel="stylesheet" href="{{ asset('backend/js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.css') }}" type="text/css" />	
-	
+	<link rel="stylesheet" href="{{ asset('backend/css/font-awesome.min.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('backend/css/bootstrap.min.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ asset('backend/js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.css') }}" type="text/css" />
+
 	<link rel="stylesheet" href="{{ asset('backend/css/App.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ asset('backend/css/Login.css') }}" type="text/css" />
 
 	<link rel="stylesheet" href="{{ asset('backend/css/custom.css') }}" type="text/css" />
-	
+
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 
 	<div id="login">
 
-		<h3>Welcome to PPMCONNECT Admin.</h3>
+		<h3>Welcome to Admin.</h3>
 
 		<h5>Please sign in to get access.</h5>
 		@if (session('success'))

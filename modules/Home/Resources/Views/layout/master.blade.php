@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <title>StartWork-Trang Chủ</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,36 +17,41 @@
 
     <link rel="stylesheet" href="{{ asset('/frontend/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('/frontend/css/custom.css') }}">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-  </head>
+</head>
 
-  <body>
+<body>
 
-    @include('Home::layout.header')
+@include('Home::layout.header')
 
-    @yield('content')
+@yield('content')
 
-    @include('Home::layout.footer')
-
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+@include('Home::layout.footer')
 
 
-  <script src="{{ asset('/frontend/js/jquery.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/jquery-migrate-3.0.1.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/popper.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/bootstrap.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/jquery.easing.1.3.js') }}"></script>
-  <script src="{{ asset('/frontend/js/jquery.waypoints.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/jquery.stellar.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/jquery.animateNumber.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/jquery.magnific-popup.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/scrollax.min.js') }}"></script>
-  <script src="{{ asset('/frontend/js/main.js') }}"></script>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>
+    </svg>
+</div>
 
 
+<script src="{{ asset('/frontend/js/jquery.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/jquery-migrate-3.0.1.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/popper.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/jquery.easing.1.3.js') }}"></script>
+<script src="{{ asset('/frontend/js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/jquery.stellar.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/jquery.animateNumber.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/scrollax.min.js') }}"></script>
+<script src="{{ asset('/frontend/js/main.js') }}"></script>
+@stack('js')
 
-  </body>
+</body>
 </html>
