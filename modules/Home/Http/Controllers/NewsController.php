@@ -6,14 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PPM\Post\Entities\Post;
 use PPM\Post\Entities\PostComment;
+use PPM\Post\Entities\PostLike;
 use PPM\User\Entities\User;
 
 class NewsController extends Controller{
 
     public function getNewIndex(){
         $posts = Post::orderBy('created_at', 'DESC')->paginate(6);
-
-        return view('Home::news.index', compact('posts'));
+        $post_likes = \PPM\Post\Entities\PostLike::where('user_id',Auth::guard('user')->id())->get();
+        $liked = [];
+        foreach ($post_likes as $like){
+            $liked[$like->user_id][$like->post_id] = $like->status;
+        }
+        return view('Home::news.index', compact('posts','liked'));
     }
 
     public function getNewsDetail($id){
@@ -48,11 +53,41 @@ class NewsController extends Controller{
                                    ->orderBy('created_at', 'DESC')
                                    ->get();
 
-            $returnHTML = view('Home::news.post_comment')->with('postComments', $comments)->render();
-            return response()->json(array('success' => true, 'html'=>$returnHTML));
+            $returnHTML = view('Home::news.post_comment')
+                ->with('postComments', $comments)
+                ->render();
+
+            return response()->json(['success' => TRUE, 'html' => $returnHTML]);
         }
 
-        return redirect()->route('get.login.index');
+        return "Vui lòng đăng nhập để bình luận";
+    }
+
+    public function postLike(Request $request){
+        if (Auth::guard('user')->check()){
+            $like = PostLike::where('post_id', $request->post_id)
+                            ->where('user_id', $request->user_id)
+                            ->first();
+
+            if(isset($like)){
+                if($like->status == 0){
+                    $like->status = 1;
+                }else{
+                    $like->status = 0;
+                }
+                $like->save();
+            }else{
+                $like = new PostLike();
+                $like->post_id = $request->post_id;
+                $like->user_id = $request->user_id;
+                $like->status = 1;
+                $like->save();
+            }
+
+            return $like->status;
+        }
+
+        return "Vui lòng đăng nhập để like";
     }
 }
 

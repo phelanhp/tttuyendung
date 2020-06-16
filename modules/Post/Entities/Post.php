@@ -47,4 +47,17 @@ class Post extends Model{
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    /**
+     * @return int
+     */
+    public function countLike(){
+        $count = 0;
+        foreach ($this->postLikes as $like){
+            if($like->status == 1){
+                $count = $count + 1;
+            }
+        }
+        return $count;
+    }
 }

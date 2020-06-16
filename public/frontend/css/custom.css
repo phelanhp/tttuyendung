@@ -16,3 +16,24 @@
     margin-bottom: 5px;
     padding-top: 10px;
 }
+
+.news-like{
+    width: 57px;
+    background: #00000059;
+    z-index: 9999;
+    right: 0;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.unlike{
+    color: #dc3545;
+}
+
+.liked{
+    color: #00fd00;
+}
+
+.news-like:focus{
+    outline: none;
+}

@@ -42,12 +42,10 @@
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item active"><a href="{{ route('get.home.index') }}" class="nav-link">Trang Chủ</a>
                     </li>
-                    <!-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li> -->
-                    <li class="nav-item">
-                        <a href="{{ route('get.recruiter.index') }}" class="nav-link">Nhà Tuyển Dụng</a></li>
                     <li class="nav-item"><a href="{{ route('get.news.index') }}" class="nav-link">Tin Tuyển Dụng</a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('get.recruiter.index') }}" class="nav-link">Nhà Tuyển Dụng</a></li>
                     <li class="nav-item"><a href="{{ route('get.contact.index') }}" class="nav-link">Liên Hệ</a></li>
                 </ul>
             </div>

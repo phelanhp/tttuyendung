@@ -22,7 +22,7 @@
                     <div class="contact-wrap w-100 p-md-5 p-4">
                         <h3 class="mb-4">Chỉnh sửa Profile</h3>
                         <div id="form-message-warning" class="mb-4"></div>
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('post.recruiter-profile.edit') }}">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
@@ -34,7 +34,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="label" for="name">Người Phụ Trách</label>
-                                        <input type="email" class="form-control" name="name" id="name" value="{{ $user->name }}" placeholder="Tên">
+                                        <input type="text" class="form-control" name="name" id="name" value="{{ $user->name }}" placeholder="Tên">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -64,7 +64,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1" class="label">Giới thiệu</label>
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4">{{ $user->hobby }}</textarea>
+                                        <textarea name="hobby" class="form-control" id="exampleFormControlTextarea1" rows="4">{{ $user->hobby }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">

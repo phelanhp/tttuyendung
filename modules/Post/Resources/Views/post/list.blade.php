@@ -22,7 +22,6 @@
                     <thead>
                         <th>STT</th>
                         <th>Tên</th>
-                        <th>Mô tả</th>
                         <th>Hình ảnh</th>
                         <th>Thể loại</th>
                         <th>Like/Comment</th>
@@ -33,12 +32,11 @@
                         <tr>
                             <td>{{ $key+1  }}</td>
                             <td>{{ $val->name  }}</td>
-                            <td>{{ $val->description  }}</td>
                             <td width="200x"><img src="{{ asset($val->image)  }}" alt="" width="70%"></td>
                             <td>{{ $val->postCategory->name  }}</td>
                             <td>
                                 {{ count($val->postLikes)  }} Thích <br>
-                                <a data-toggle="modal" href="#comment-popup" id="comment" post-id="{{ $val->id }}"><span class="count-comment">{{ count($val->postComments)  }}</span> Bình luận </a>
+                                <a data-toggle="modal" href="#comment-popup" class="comment" post-id="{{ $val->id }}"><span class="count-comment">{{ count($val->postComments)  }}</span> Bình luận </a>
                             </td>
                             <td>
                                 <a href="{{ route('post.get.edit',$val->id) }}"><i class="fas fa-edit" style="font-size: 20px; margin-right: 20px"></i></a>
@@ -82,7 +80,7 @@
 @push('js')
 <script>
 $(document).ready(function () {
-    $('#comment').click(function () {
+    $('.comment').click(function () {
         var post_id = $(this).attr('post-id');
         $.ajax({
             url: '/admin/post/comment-list/'+post_id,
@@ -102,6 +100,16 @@ $(document).ready(function () {
             cache: false,
         });
         $(this).parents('tr').remove();
+    });
+
+    $(document).on('click','.show-comment',function () {
+        var comment_id = $(this).attr('data-id');
+        var status = $(this).attr('data-status');
+        $.ajax({
+            url: '/admin/post/show-comment?id='+comment_id+'&status='+status,
+            type: 'GET',
+            cache: false,
+        });
     })
 })
 </script>

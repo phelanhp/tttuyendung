@@ -65,4 +65,16 @@ class PostController extends Controller{
         $comment->delete();
         return response()->json();
     }
+
+    public function getShowComment(Request $request){
+        $comment = PostComment::find($request->id);
+        if($request->status == 0){
+            $comment->status = 1;
+        }else{
+            $comment->status = 0;
+        }
+        $comment->update();
+
+        return '';
+    }
 }

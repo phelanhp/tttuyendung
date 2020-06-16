@@ -55,7 +55,7 @@
                         <div class="comment">
                             <ul class="comment-list">
                                 @foreach($postComments as $comment)
-                                    @if($comment->parent_id == 0)
+                                    @if($comment->parent_id == 0 && $comment->status == 1)
                                         <li class="comment">
                                             <div class="vcard bio">
                                                 <img src="{{ asset($comment->user->avatar) }}" alt="{{ $comment->user->name }}">
@@ -70,6 +70,7 @@
                                                     <button type="button" data-comment-id="{{ $comment->id }}" data-post-id={{ $post->id }} id="btn-reply" class="border-0 reply">Reply</button>
                                                 </div>
                                                 @foreach($comment->children as $child)
+                                                    @if($child->status == 1)
                                                     <ul class="comment-list comment-children">
                                                         <li class="comment">
                                                             <div class="vcard bio">
@@ -84,6 +85,7 @@
                                                             </div>
                                                         </li>
                                                     </ul>
+                                                    @endif
                                                 @endforeach
 
                                             </div>
@@ -117,7 +119,7 @@
                     data: data,
                     success: function (response) {
                         $('.comment-list').html(response.html);
-                        $('.input-comment').val('');
+                        $('#input-comment').val('');
                     }
                 });
             });

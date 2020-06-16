@@ -19,5 +19,6 @@ Route::prefix('admin')->group(function (){
         Route::get('delete/{id}', 'PostController@delete')->name('post.get.delete');
         Route::get('comment-list/{id}', 'PostController@commentList')->name('post.get.comment_list');
         Route::get('comment-delete/{id}', 'PostController@commentDelete')->name('post.get.comment_delete');
+        Route::get('show-comment', 'PostController@getShowComment')->name('get.get.show_comment');
     });
 });
