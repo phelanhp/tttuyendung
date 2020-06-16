@@ -117,6 +117,7 @@
                     data: data,
                     success: function (response) {
                         $('.comment-list').html(response.html);
+                        $('.input-comment').val('');
                     }
                 });
             });

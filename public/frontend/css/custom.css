@@ -1,0 +1,18 @@
+.ftco-section{
+    padding-top: 20px;
+}
+
+.comment-body h3, .comment-body .comment-content{
+    font-family: "Arial",sans-serif;
+    margin-bottom: 0;
+    color: #0b0b0b;
+}
+
+.comment-name{
+    font-size: 16px !important;
+}
+
+.comment-children li{
+    margin-bottom: 5px;
+    padding-top: 10px;
+}
