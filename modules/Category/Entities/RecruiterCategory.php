@@ -4,6 +4,7 @@ namespace PPM\Category\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use PPM\Category\Entities\Recruiter;
 
 class RecruiterCategory extends Model
 {
@@ -18,5 +19,9 @@ class RecruiterCategory extends Model
     protected $guarded = [];
 
     public $timestamps = true;
+
+    public function recruiters(){
+    	return $this->hasMany(Recruiter::class,'category_id');
+    }
 
 }

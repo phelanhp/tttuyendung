@@ -10,8 +10,8 @@
                             Cá nhân
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                            <a class="dropdown-item" href="{{ route('get.recruiter-profile.profile') }}">Profile</a>
-                            <a class="dropdown-item" href="{{ route('get.news-manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
+                            <a class="dropdown-item" href="{{ route('get.recruiter_profile.profile') }}">Profile</a>
+                            <a class="dropdown-item" href="{{ route('get.news_manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
                             <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
                         </div>
                     </div>

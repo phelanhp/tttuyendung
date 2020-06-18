@@ -9,7 +9,7 @@
                         <span class="mr-2"><a href="index.html">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span>
                         <span>Nhà Tuyển Dụng <i class="ion-ios-arrow-forward"></i></span></p>
                     <h1 class="mb-0 bread">Profile Nhà Tuyển Dụng</h1>
-                    <a href="{{ route('get.recruiter-profile.edit') }}">
+                    <a href="{{ route('get.recruiter_profile.edit') }}">
                         <button type="button" class="btn btn-primary"><i class='fas fa-user-edit'></i> Chỉnh sửa
                         </button>
                     </a>

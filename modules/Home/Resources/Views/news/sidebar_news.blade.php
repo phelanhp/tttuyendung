@@ -1,19 +1,18 @@
 <div class="col-lg-4 sidebar pl-lg-5 ftco-animate">
     <div class="sidebar-box">
-        <form action="#" class="search-form">
+        <form method="get" action="{{route('get.news_name.search')}}" class="search-form">
             <div class="form-group">
-                <span class="fa fa-search"></span>
-                <input type="text" class="form-control" placeholder="Tìm kiếm tên doanh nghiệp">
+                <span><button type="submit" class="btn border-0 bg-transparent"><i style="top: 65%;" class="fa fa-search"></i></button></span>
+                <input type="text" name="key_search"class="form-control" placeholder="Tìm kiếm tên doanh nghiệp">
             </div>
         </form>
     </div>
     <div class="sidebar-box ftco-animate">
         <div class="categories">
             <h3>Lĩnh vực</h3>
-            <li><a href="#">Công nghệ <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Kỹ thuật <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Xã hội &amp; Cộng đồng <span class="ion-ios-arrow-forward"></span></a></li>
-            <li><a href="#">Việc bán thời gian <span class="ion-ios-arrow-forward"></span></a></li>
+            @foreach($post_categories as $post_categorie)
+            <li><a href="{{ route('get.news_by_category.search',$post_categorie->id) }}">{{$post_categorie->name}} <span class="ion-ios-arrow-forward"></span></a></li>
+            @endforeach
         </div>
     </div>
     <div class="sidebar-box ftco-animate">

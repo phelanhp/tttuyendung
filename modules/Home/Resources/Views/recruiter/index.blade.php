@@ -38,7 +38,7 @@
                     </div>
 
                 </div> <!-- .col-md-8 -->
-                @include('Home::layout.sidebar')
+                @include('Home::recruiter.sidebar_recruiter')
 
             </div>
         </div>
