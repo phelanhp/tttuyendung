@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use PPM\Category\Entities\Recruiter;
 use PPM\Post\Entities\Post;
 use PPM\Post\Entities\PostComment;
+use PPM\Category\Entities\Student;
+use PPM\User\Entities\UserGroup;
 
 class User extends Model
 {
@@ -29,6 +31,11 @@ class User extends Model
         return $this->name;
     }
 
+    public function group()
+    {
+        return $this->belongsTo(UserGroup::class,'group_id');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -42,4 +49,8 @@ class User extends Model
     public function recruiter(){
         return $this->hasOne(Recruiter::class, 'user_id');
     }
+    public function student(){
+        return $this->hasOne(Student::class, 'user_id');
+    }
+
 }

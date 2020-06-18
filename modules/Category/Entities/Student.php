@@ -4,6 +4,7 @@ namespace PPM\Category\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use PPM\Category\Entities\Major;
 
 class Student extends Model
 {
@@ -18,5 +19,10 @@ class Student extends Model
     protected $guarded = [];
 
     public $timestamps = true;
+
+    public function major()
+    {
+    	return $this->belongsTo(Major::class, 'major_id');
+    }
 
 }

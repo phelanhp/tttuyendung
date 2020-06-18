@@ -18,6 +18,16 @@ Route::prefix('recruiter')->group(function (){
     Route::post('/edit', 'ProfileRecruiterController@postRecruiterEdit')
          ->name('post.recruiter-profile.edit');
 });
+Route::prefix('student')->group(function(){
+    Route::get('/','StudentController@getProfileStudent')
+         ->name('get.student.profile');
+    Route::get('/edit', 'StudentController@getEditStudent')
+         ->name('get.student.edit');
+    Route::get('/activity', 'StudentController@getActivityStudent')
+         ->name('get.student.activity');
+    Route::post('/edit', 'StudentController@getEditStudent')
+         ->name('post.student.edit');
+});
 Route::prefix('news')->group(function (){
     Route::get('/', 'NewsController@getNewIndex')->name('get.news.index');
     Route::get('/detail/{id}', 'NewsController@getNewsDetail')->name('get.news.detail');
