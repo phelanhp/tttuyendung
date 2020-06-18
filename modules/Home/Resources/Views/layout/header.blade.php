@@ -24,8 +24,8 @@
                                 Cá nhân
                             </button>
                             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item" href="{{ route('get.recruiter-profile.profile') }}">Profile</a>
-                                <a class="dropdown-item" href="{{ route('get.news-manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
+                                <a class="dropdown-item" href="{{ route('get.recruiter_profile.profile') }}">Profile</a>
+                                <a class="dropdown-item" href="{{ route('get.news_manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
                                 <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Start<span>work</span></a>
+            <a class="navbar-brand" href="/">Start<span>work</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="fa fa-bars"></span> Menu
             </button>
