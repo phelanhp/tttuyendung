@@ -78,18 +78,18 @@
                 type: 'GET',
                 cache: false,
             }).done(function (response) {
-                console.log(response);
+                const count_like = like.parent('.news-item').find('.count-like').html();
                 if (parseInt(response) === 1) {
-                    var count_like = like.parent('.news-item').find('.count-like').html();
                     like.parent('.news-item').find('.count-like').html(parseInt(count_like) + 1);
                     like.removeClass('unlike');
                     like.addClass('liked');
                 }
-                else {
-                    var count_like = like.parent('.news-item').find('.count-like').html();
+                else if(parseInt(response) === 0){
                     like.parent('.news-item').find('.count-like').html(parseInt(count_like) - 1);
                     like.addClass('unlike');
                     like.removeClass('liked');
+                }else{
+                    alert('Vui lòng đăng nhập.');
                 }
             })
         })

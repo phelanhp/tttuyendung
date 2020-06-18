@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('/frontend/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('/frontend/css/custom.css') }}">
-    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link href="{{ asset('/css/fontawesome/css/all.css') }}" rel="stylesheet">
 </head>
 
 <body>
