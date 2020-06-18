@@ -1,10 +1,14 @@
+<?php
+$user = \PPM\User\Entities\User::where('id',Auth::guard('user')->id())->first();
+?>
+
 <header>
     <div class="wrap">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col d-flex justify-content-end">
                     @if(Auth::guard('user')->check())
-                        @if(Auth::guard('user')->user()->group_id == 1)
+                        @if($user->group->key == 'sinh-vien')
                         <div class="btn-group social-media btn-dangxuat" role="group">
                             <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <i class='fas fa-user-tie'></i>
