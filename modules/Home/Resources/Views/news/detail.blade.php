@@ -1,5 +1,11 @@
-@extends('Home::layout.master')
+@extends('Home::layout.master')<?php
 
+use PPM\Post\Entities\PostLike;$like = PostLike::where('post_id', $post->id)
+                                               ->where('user_id', Auth::guard('user')->id())
+                                               ->first();
+$check_like = (isset($like) && $like->status === 1) ? true : FALSE;
+
+?>
 @section('content')
     <section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
@@ -25,7 +31,11 @@
                         </div>
                         <div class="form-group float-right">
                             <a href="#" class="btn btn-primary">Ứng tuyển ngay</a>
-                            <a href="#" class="btn btn-primary">Yêu thích</a>
+                            @if($check_like)
+                                <a href="javascript:" class="btn btn-danger like">Đã yêu thích</a>
+                            @else
+                                <a href="javascript:" class="btn btn-success like">Yêu thích</a>
+                            @endif
                         </div>
                     </div>
                     <div class="card-body">
@@ -71,20 +81,20 @@
                                                 </div>
                                                 @foreach($comment->children as $child)
                                                     @if($child->status == 1)
-                                                    <ul class="comment-list comment-children">
-                                                        <li class="comment">
-                                                            <div class="vcard bio">
-                                                                <img src="{{ asset($child->user->avatar) }}" alt="{{ $child->user->name }}">
-                                                            </div>
-                                                            <div class="comment-body">
-                                                                <h3 class="font-weight-bold comment-name">{{$child->user->name}}</h3>
-                                                                <div class="meta">{{$child->created_at}}</div>
-                                                                <div class="font-weight-light">
-                                                                    {{$child->content}}
+                                                        <ul class="comment-list comment-children">
+                                                            <li class="comment">
+                                                                <div class="vcard bio">
+                                                                    <img src="{{ asset($child->user->avatar) }}" alt="{{ $child->user->name }}">
                                                                 </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                                                <div class="comment-body">
+                                                                    <h3 class="font-weight-bold comment-name">{{$child->user->name}}</h3>
+                                                                    <div class="meta">{{$child->created_at}}</div>
+                                                                    <div class="font-weight-light">
+                                                                        {{$child->content}}
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
                                                     @endif
                                                 @endforeach
 
@@ -118,7 +128,12 @@
                     url: "{{ route('post.comment') }}",
                     data: data,
                     success: function (response) {
-                        $('.comment-list').html(response.html);
+                        if (response === 'Vui lòng đăng nhập để bình luận') {
+                            alert(response)
+                        }
+                        else {
+                            $('.comment-list').html(response.html);
+                        }
                         $('#input-comment').val('');
                     }
                 });
@@ -157,11 +172,38 @@
                     url: "{{ route('post.comment') }}",
                     data: data,
                     success: function (response) {
-                        $('.comment-list').html(response.html);
+                        if (response === 'Vui lòng đăng nhập để bình luận') {
+                            alert(response)
+                        }
+                        else {
+                            $('.comment-list').html(response.html);
+                        }
                     }
                 });
-            })
+            });
 
+            $('.like').click(function () {
+                var like = $(this);
+                $.ajax({
+                    type: "GET",
+                    url: '/like?post_id={{$post->id}}&user_id={{Auth::guard('user')->id()}}',
+                }).done(function (response) {
+                    response = parseInt(response);
+                    if (response === 1) {
+                        like.html('Đã yêu thích');
+                        like.removeClass('btn-success');
+                        like.addClass('btn-danger');
+                    }
+                    else if (response === 0) {
+                        like.html('Yêu thích');
+                        like.addClass('btn-success');
+                        like.removeClass('btn-danger');
+                    }
+                    else {
+                        alert('Vui lòng đăng nhập để yêu thích.');
+                    }
+                })
+            })
 
         })
     </script>

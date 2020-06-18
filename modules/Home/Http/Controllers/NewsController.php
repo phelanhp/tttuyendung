@@ -111,7 +111,7 @@ class NewsController extends Controller{
             return $like->status;
         }
 
-        return "Vui lòng đăng nhập để like";
+        return "<script>alert('Vui lòng đăng nhập để like')</script>";
     }
 }
 
