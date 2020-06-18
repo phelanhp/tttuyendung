@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <a href="{{ route('get.news-manager.create') }}" class="btn btn-primary btn-block">Thêm Tin Tuyển Dụng<br/></a>
+                    <a href="{{ route('get.news_manager.create') }}" class="btn btn-primary btn-block">Thêm Tin Tuyển Dụng<br/></a>
                 </div>
                 <div class="col-lg-12 ftco-animate">
                     <div class="portlet-content">

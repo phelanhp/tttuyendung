@@ -8,15 +8,22 @@ Route::get('/logout', 'LoginController@logout')->name('get.logout.index');
 Route::get('/', 'HomeController@getIndex')->name('get.home.index');
 Route::get('/contact', 'HomeController@getContact')->name('get.contact.index');
 Route::prefix('recruiter')->group(function (){
+    //Recruiter home
     Route::get('/', 'RecruiterController@getRecruiterIndex')->name('get.recruiter.index');
     Route::get('/detail/{id}', 'RecruiterController@getRecruiterDetail')
          ->name('get.recruiter.detail');
+    Route::get('/search-by-category/{id}', 'RecruiterController@getRecruiterByCategory')
+         ->name('get.recruiter_by_category.search');
+    Route::get('/search-company', 'RecruiterController@getRecruiterSearch')
+         ->name('get.recruiter_company.search');
+
+    //Profile
     Route::get('/profile', 'ProfileRecruiterController@getRecruiterProfile')
-         ->name('get.recruiter-profile.profile');
+         ->name('get.recruiter_profile.profile');
     Route::get('/edit', 'ProfileRecruiterController@getRecruiterEdit')
-         ->name('get.recruiter-profile.edit');
+         ->name('get.recruiter_profile.edit');
     Route::post('/edit', 'ProfileRecruiterController@postRecruiterEdit')
-         ->name('post.recruiter-profile.edit');
+         ->name('post.recruiter_profile.edit');
 });
 Route::prefix('student')->group(function(){
     Route::get('/','StudentController@getProfileStudent')
@@ -31,8 +38,12 @@ Route::prefix('student')->group(function(){
 Route::prefix('news')->group(function (){
     Route::get('/', 'NewsController@getNewIndex')->name('get.news.index');
     Route::get('/detail/{id}', 'NewsController@getNewsDetail')->name('get.news.detail');
-    Route::get('/list', 'NewsController@getNewList')->name('get.news-manager.list');
-    Route::get('/create', 'NewsController@getNewsCreate')->name('get.news-manager.create');
+    Route::get('/search-by-category/{id}', 'NewsController@getNewsByCategory')
+         ->name('get.news_by_category.search');
+    Route::get('/search-name', 'NewsController@getNewsSearch')
+         ->name('get.news_name.search');
+    Route::get('/list', 'NewsController@getNewList')->name('get.news_manager.list');
+    Route::get('/create', 'NewsController@getNewsCreate')->name('get.news_manager.create');
 });
 
 Route::post('/comment', 'NewsController@postComment')->name('post.comment');

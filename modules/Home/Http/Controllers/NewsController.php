@@ -6,19 +6,43 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PPM\Post\Entities\Post;
 use PPM\Post\Entities\PostComment;
+use PPM\Post\Entities\PostCategory;
 use PPM\Post\Entities\PostLike;
 use PPM\User\Entities\User;
-
 class NewsController extends Controller{
 
     public function getNewIndex(){
+    	$post_categories = PostCategory::get();
         $posts = Post::orderBy('created_at', 'DESC')->paginate(6);
         $post_likes = \PPM\Post\Entities\PostLike::where('user_id',Auth::guard('user')->id())->get();
         $liked = [];
         foreach ($post_likes as $like){
             $liked[$like->user_id][$like->post_id] = $like->status;
         }
-        return view('Home::news.index', compact('posts','liked'));
+        return view('Home::news.index', compact('posts','liked','post_categories'));
+    }
+    public function getNewsByCategory($id){
+        $post_categories = PostCategory::get();
+        $news_category = PostCategory::find($id);
+        $posts = Post::where('category_id',$news_category->id)->paginate(6);
+
+        $post_likes = \PPM\Post\Entities\PostLike::where('user_id',Auth::guard('user')->id())->get();
+        $liked = [];
+        foreach ($post_likes as $like){
+            $liked[$like->user_id][$like->post_id] = $like->status;
+        }
+        return view('Home::news.index', compact('posts','liked','post_categories'));
+    }
+    public function getNewsSearch(Request $request){
+        $post_categories = PostCategory::get();
+        $posts = Post::where('name','LIKE','%'.$request->key_search.'%')->paginate(6);
+
+        $post_likes = \PPM\Post\Entities\PostLike::where('user_id',Auth::guard('user')->id())->get();
+        $liked = [];
+        foreach ($post_likes as $like){
+            $liked[$like->user_id][$like->post_id] = $like->status;
+        }
+        return view('Home::news.index', compact('posts','liked','post_categories'));
     }
 
     public function getNewsDetail($id){
@@ -87,7 +111,7 @@ class NewsController extends Controller{
             return $like->status;
         }
 
-        return "Vui lòng đăng nhập để like";
+        return "<script>alert('Vui lòng đăng nhập để like')</script>";
     }
 }
 

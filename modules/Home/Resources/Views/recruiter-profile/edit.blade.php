@@ -22,7 +22,7 @@
                     <div class="contact-wrap w-100 p-md-5 p-4">
                         <h3 class="mb-4">Chỉnh sửa Profile</h3>
                         <div id="form-message-warning" class="mb-4"></div>
-                        <form method="POST" action="{{ route('post.recruiter-profile.edit') }}">
+                        <form method="POST" action="{{ route('post.recruiter_profile.edit') }}">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">

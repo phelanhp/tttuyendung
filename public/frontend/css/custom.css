@@ -37,3 +37,7 @@
 .news-like:focus{
     outline: none;
 }
+
+a.like{
+    color: white;
+}
