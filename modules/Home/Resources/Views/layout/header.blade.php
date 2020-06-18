@@ -37,7 +37,7 @@ $user = \PPM\User\Entities\User::where('id',Auth::guard('user')->id())->first();
                     @endif
                     <div class="btn-group social-media btn-dangxuat" role="group" aria-label="Basic example">
                         @if(!Auth::guard('user')->check())
-                            <a href="{{ route('get.login.index') }}" class="btn btn-primary">Đăng Nhập</a>
+                            <a href="{{ route('get.login.index') }}" class="btn btn-danger">Đăng Nhập</a>
                         @endif
                     </div>
                 </div>
