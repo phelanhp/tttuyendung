@@ -17,7 +17,7 @@
     </div>
     <div class="sidebar-box ftco-animate">
         <h3>Tin tuyển dụng gần đây</h3>
-        @foreach($posts as $post)
+        @foreach($posts as $key => $post)
         <div class="block-21 mb-4 d-flex">
             <a href="{{ route('get.news.detail',$post->id) }}" class="block-20 rounded" style="background-image: url({{ asset($post->image) }});">
             <div class="text">
@@ -30,6 +30,9 @@
                 </div>
             </div>
         </div>
+                @if($key == 2)
+                        @break;
+                @endif
         @endforeach
     </div>
         <div class="sidebar-box ftco-animate">
