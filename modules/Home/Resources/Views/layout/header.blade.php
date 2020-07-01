@@ -1,5 +1,12 @@
 <?php
-$user = \PPM\User\Entities\User::where('id',Auth::guard('user')->id())->first();
+
+use Illuminate\Support\Facades\URL;
+use PPM\User\Entities\User;
+
+$user = User::where('id', Auth::guard('user')->id())->first();
+
+$home        = URL::to('/');
+$url_current = URL::current();
 ?>
 
 <header>
@@ -9,30 +16,30 @@ $user = \PPM\User\Entities\User::where('id',Auth::guard('user')->id())->first();
                 <div class="col d-flex justify-content-end">
                     @if(Auth::guard('user')->check())
                         @if($user->group->key == 'sinh-vien')
-                        <div class="btn-group social-media btn-dangxuat" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class='fas fa-user-tie'></i>
-                              Cá nhân
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                              <a class="dropdown-item" href="{{ route('get.student.profile') }}">Profile</a>
-                              <a class="dropdown-item" href=" {{ route('get.student.edit') }} ">Chỉnh sửa profile</a>
-                              <a class="dropdown-item" href="{{ route('get.student.activity') }}">Lịch sử hoạt động</a>
-                              <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
+                            <div class="btn-group social-media btn-dangxuat" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class='fas fa-user-tie'></i>
+                                    Cá nhân
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="{{ route('get.student.profile') }}">Profile</a>
+                                    <a class="dropdown-item" href=" {{ route('get.student.edit') }} ">Chỉnh sửa profile</a>
+                                    <a class="dropdown-item" href="{{ route('get.student.activity') }}">Lịch sử hoạt động</a>
+                                    <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
+                                </div>
                             </div>
-                        </div>
                         @else
-                        <div class="btn-group social-media btn-dangxuat" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class='fas fa-user-tie'></i>
-                                Cá nhân
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item" href="{{ route('get.recruiter_profile.profile') }}">Profile</a>
-                                <a class="dropdown-item" href="{{ route('get.news_manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
-                                <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
+                            <div class="btn-group social-media btn-dangxuat" role="group">
+                                <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class='fas fa-user-tie'></i>
+                                    Cá nhân
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                    <a class="dropdown-item" href="{{ route('get.recruiter_profile.profile') }}">Profile</a>
+                                    <a class="dropdown-item" href="{{ route('get.news_manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
+                                    <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
+                                </div>
                             </div>
-                        </div>
                         @endif
                     @endif
                     <div class="btn-group social-media btn-dangxuat" role="group" aria-label="Basic example">
@@ -52,13 +59,14 @@ $user = \PPM\User\Entities\User::where('id',Auth::guard('user')->id())->first();
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
-                    <li class="nav-item active"><a href="{{ route('get.home.index') }}" class="nav-link">Trang Chủ</a>
+                    <li class="nav-item @if($url_current === $home) active @endif">
+                        <a href="{{ route('get.home.index') }}" class="nav-link">Trang Chủ</a>
                     </li>
-                    <li class="nav-item"><a href="{{ route('get.news.index') }}" class="nav-link">Tin Tuyển Dụng</a>
+                    <li class="nav-item @if($url_current === $home.'/news') active @endif"><a href="{{ route('get.news.index') }}" class="nav-link">Tin Tuyển Dụng</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item @if($url_current === $home.'/recruiter') active @endif">
                         <a href="{{ route('get.recruiter.index') }}" class="nav-link">Nhà Tuyển Dụng</a></li>
-                    <li class="nav-item"><a href="{{ route('get.contact.index') }}" class="nav-link">Liên Hệ</a></li>
+                    <li class="nav-item @if($url_current === $home.'/contact') active @endif"><a href="{{ route('get.contact.index') }}" class="nav-link">Liên Hệ</a></li>
                 </ul>
             </div>
         </div>

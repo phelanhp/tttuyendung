@@ -90,7 +90,7 @@ class UserController extends Controller{
         if(empty($post['password'])){
             unset($post['password']);
         }else{
-            $user->password = bcrypt($request->password);
+            $post['password'] = bcrypt($request->password);
         }
         $post['birth_date'] = ConvertDateTimeToSave($post['birth_date']);
         if($request->file('avatar')){
@@ -98,6 +98,7 @@ class UserController extends Controller{
             $request->file('avatar')->move('upload/images/users',$image);
             $user->avatar = 'upload/images/users/'.$image;
         }
+
         if($user->update($post)){
             if($request->group === 'ntd'){
                 $post_recruiter = $request->only(['company','founding','category_id']);
