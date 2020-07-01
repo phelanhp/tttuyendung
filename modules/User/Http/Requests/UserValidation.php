@@ -25,6 +25,7 @@ class UserValidation extends FormRequest{
         switch ($method){
             case 'edit':
                 return [
+                    'username'         => 'required',
                     'name'             => 'required',
                     'address'          => 'required',
                     'sex'              => 'required',
@@ -40,11 +41,12 @@ class UserValidation extends FormRequest{
                     'class'            => 'required',
                     'course'           => 'required',
                     'major_id'         => 'required',
-                    'username' => 'required',
                 ];
                 break;
             default:
                 return [
+                    'username'         => 'required',
+                    'password'         => 'required',
                     'name'             => 'required',
                     'address'          => 'required',
                     'sex'              => 'required',
@@ -60,8 +62,6 @@ class UserValidation extends FormRequest{
                     'class'            => 'required',
                     'course'           => 'required',
                     'major_id'         => 'required',
-                    'username'         => 'required',
-                    'password'         => 'required',
                     'status'           => 'required',
                 ];
                 break;
@@ -70,10 +70,11 @@ class UserValidation extends FormRequest{
 
     public function messages(){
         return [
-            'required' => ':attribute không được bỏ trống',
-            'regex'    => ':attribute khôn đúng định dạng',
-            'email'    => ':attribute khôn đúng định dạng',
-            'numeric'  => ':attribute khôn đúng định dạng'
+            'required'     => ':attribute không được bỏ trống',
+            'regex'        => ':attribute khôn đúng định dạng',
+            'email'        => ':attribute khôn đúng định dạng',
+            'numeric'      => ':attribute khôn đúng định dạng',
+            'unique:users' => ':attribute đã tồn tại'
         ];
     }
 

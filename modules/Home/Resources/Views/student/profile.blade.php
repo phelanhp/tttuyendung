@@ -1,4 +1,4 @@
-1 @extends('Home::layout.master')
+@extends('Home::layout.master')
 
 @section('content')
 <section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
@@ -12,7 +12,7 @@
     </div>
   </div>
 </section>
-	
+
 <section class="ftco-section ftco-degree-bg">
   <div class="container">
     <div class="row">
@@ -25,7 +25,7 @@
                             <div class="image-container">
                                 <img src="{{ asset($user->avatar) }}" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
                                 <div class="middle">
-                                    
+
                                 </div>
                             </div>
                             <div class="userData ml-3">
@@ -46,7 +46,7 @@
                             </ul>
                             <div class="tab-content ml-1" id="myTabContent">
                                 <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
-                                    
+
 
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
@@ -85,8 +85,8 @@
                                         </div>
                                     </div>
                                     <hr />
-                                    
-                                    
+
+
                                     <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
                                             <label style="font-weight:bold;">Số điện thoại</label>
@@ -110,7 +110,7 @@
                                             <label style="font-weight:bold;">Ngành</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            {{ $user->student->major->name }}
+                                            {{ $user->student->major->name ?? NULL }}
                                         </div>
                                     </div>
                                     <hr />
@@ -161,7 +161,7 @@
             </div>
         </div>
 
-        
+
 
     </div>
   </div>

@@ -12,7 +12,7 @@
     </div>
   </div>
 </section>
-		
+
 <section class="ftco-section ftco-degree-bg">
   <div class="container">
     <div class="row">
@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label class="control-label">Ngày sinh:</label>
-                                <?php 
+                                <?php
                                     $birth_date = date_create($user->birth_date);
                                     $birth_date = date_format($birth_date,'Y-m-d');
                                 ?>
@@ -63,15 +63,16 @@
                                 <label class="control-label">Ngành:</label>
                                 <div class="ui-select">
                                     <select id="user_time_zone" name="major_id" class="form-control">
+                                        <option value="">-- Chọn ngành nghề --</option>
                                         @foreach($majors as $major)
-                                        <option value="{{ $major->id }}" @if($user->student->major->id == $major->id) selected @endif>{{ $major->name }}</option>
+                                        <option value="{{ $major->id }}" @if(isset($user->student->major) && $user->student->major->id == $major->id) selected @endif>{{ $major->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group  col-md-6">
                                 <label class="control-label">Khóa học:</label>
-                                <input class="form-control" name="course" type="text" 
+                                <input class="form-control" name="course" type="text"
                                 value="{{ $user->student->course }}" placeholder="Khóa học">
                             </div>
                             <div class="form-group  col-md-6">
@@ -81,8 +82,7 @@
                             <div class="form-group  col-md-6">
                                 <label class="control-label">Tình trạng:</label>
                                 <div class="ui-select">
-                                    <select id="user_time_zone" name="status" class="form-control">
-                                        @if($user->student->major->id == $major->id) selected @endif>
+                                    <select id="user_time_zone" name="status" class="form-control select2">
                                         <option value="0" @if($user->status == 0) selected @endif >Đang tìm việc làm</option>
                                         <option value="1" @if($user->status == 1) selected @endif >Đã có việc làm</option>
                                     </select>
@@ -93,7 +93,7 @@
                                 <textarea class="form-control" name="hobby" rows="4">{{ $user->hobby}}</textarea>
                             </div>
                         </div>
-                        
+
                         <br>
                         <h3>Tài khoản và bảo mật</h3>
                         <div class="row">
