@@ -1,4 +1,4 @@
-@extends('Home::layout.master')
+1 @extends('Home::layout.master')
 
 @section('content')
 <section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
@@ -110,7 +110,7 @@
                                             <label style="font-weight:bold;">Ngành</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                            {{$user->student->major->name}}
+                                            {{ $user->student->major->name }}
                                         </div>
                                     </div>
                                     <hr />
@@ -119,7 +119,7 @@
                                             <label style="font-weight:bold;">Khóa học</label>
                                         </div>
                                         <div class="col-md-8 col-6">
-                                        		{{$user->student->course}}
+                                            {{ $user->student->course }}
                                         </div>
                                     </div>
                                     <hr />

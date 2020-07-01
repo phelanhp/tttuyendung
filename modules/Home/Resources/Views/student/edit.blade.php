@@ -17,141 +17,108 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-            
-                <div class="container">
-                    <h1>Chỉnh sửa Profile</h1>
-                    <hr>
-                    <form method="POST" action="">
-                            {{ csrf_field() }}
-                    <div class="row">
-                        <!-- left column -->
-                        <div class="col-md-3">
-                            <div class="text-center">
-                                <div class="image-container">
-                                <img src="{{ asset($user->avatar) }}" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
-                                <div class="middle">
-                                </div>
-                            </div>
-                                <h6>Tải ảnh lên</h6>
-                                <input type="file" class="form-control">
+            <div class="container">
+                <h1>Chỉnh sửa Profile</h1>
+                <hr>
+                <form method="POST" action="{{ route('post.student.edit') }}" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <div class="image-container">
+                            <img src="{{ asset($user->avatar) }}" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail" />
+                            <div class="middle">
                             </div>
                         </div>
-                        <!-- edit form column -->
-                        <div class="col-md-9 personal-info">
-                            <div class="alert alert-info alert-dismissable">
-                                <a class="panel-close close" data-dismiss="alert">×</a>
-                                <i class="fa fa-coffee"></i>Vui lòng nhập lại <strong>tất cả</strong> thông tin để chỉnh sửa.</div>
-                            <h3>Thông tin sinh viên</h3>
-                            <form class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Họ và Tên:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="text" value="{{ $user->name }}">
-                                    </div>
+                            <h6>Tải ảnh lên</h6>
+                            <input type="file" name="avatar" class="form-control" placeholder="avatar">
+                        </div>
+                     </div>
+                     <!-- edit form column -->
+                     <div class="col-md-9 personal-info">
+                        <h3>Thông tin sinh viên</h3>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Họ và Tên:</label>
+                                <input class="form-control" name="name" type="text" value="{{ $user->name }}" placeholder="Họ và Tên">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Ngày sinh:</label>
+                                <?php 
+                                    $birth_date = date_create($user->birth_date);
+                                    $birth_date = date_format($birth_date,'Y-m-d');
+                                ?>
+                                <input class="form-control" type="date" name="birth_date" value="{{ $birth_date }}">
+                            </div>
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Số điện thoại:</label>
+                                <input class="form-control" name="phone" type="text" value="{{ $user->phone }}" placeholder="Số điện thoại">
+                            </div>
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Email:</label>
+                                <input class="form-control" name="email" type="text" value="{{ $user->email }}"placeholder="Email">
+                            </div>
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Ngành:</label>
+                                <div class="ui-select">
+                                    <select id="user_time_zone" name="major_id" class="form-control">
+                                        @foreach($majors as $major)
+                                        <option value="{{ $major->id }}" @if($user->student->major->id == $major->id) selected @endif>{{ $major->name }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Ngày sinh:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="date" value="{{ $user->birth_date}}">
-                                    </div>
+                            </div>
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Khóa học:</label>
+                                <input class="form-control" name="course" type="text" 
+                                value="{{ $user->student->course }}" placeholder="Khóa học">
+                            </div>
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Địa chỉ:</label>
+                                <input class="form-control" name="address" type="text" value="{{ $user->address}}"placeholder="Địa chỉ">
+                            </div>
+                            <div class="form-group  col-md-6">
+                                <label class="control-label">Tình trạng:</label>
+                                <div class="ui-select">
+                                    <select id="user_time_zone" name="status" class="form-control">
+                                        @if($user->student->major->id == $major->id) selected @endif>
+                                        <option value="0" @if($user->status == 0) selected @endif >Đang tìm việc làm</option>
+                                        <option value="1" @if($user->status == 1) selected @endif >Đã có việc làm</option>
+                                    </select>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Số điện thoại:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="text" value="{{ $user->phone }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Email:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="text" value="{{ $user->email }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Ngành:</label>
-                                    <div class="col-lg-8">
-                                        <div class="ui-select">
-                                            <select id="user_time_zone" class="form-control">
-                                                <option value="co-khi">Kỹ thuật cơ khí</option>
-                                                <option value="cntp-cnsh">CNTP & CNSH</option>
-                                                <option value="dien-dientu">Điện - Điện tử - Viễn Thông</option>
-                                                <option value="qlcn">Quản lý công nghiệp</option>
-                                                <option value="ktxd">Kỹ thuật xây dựng</option>
-                                                <option value="cntt">Công nghệ thông tin</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Khóa học:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="text" 
-                                        value="{{ $user->student->course }}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Địa chỉ:</label>
-                                    <div class="col-lg-8">
-                                        <input class="form-control" type="text" value="{{ $user->address}}">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Tình trạng:</label>
-                                    <div class="col-lg-8">
-                                        <div class="ui-select">
-                                            <select id="user_time_zone" class="form-control">
-                                                <option value="co-khi">Đang tìm việc làm</option>
-                                                <option value="cntp-cnsh">Đã có việc làm</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-lg-3 control-label">Sở thích:</label>
-                                    <div class="col-lg-8">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="4">
-                                            {{ $user->hobby}}
-                                        </textarea>
-                                    </div>
-                                </div>
-                                <br>
-                                <h3>Tài khoản và bảo mật</h3>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Mật khẩu hiện tại:</label>
-                                    <div class="col-md-8">
-                                        <input class="form-control" type="password" value="11111122333">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Mật khẩu mới:</label>
-                                    <div class="col-md-8">
-                                        <input class="form-control" type="password" value="11111122333">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label">Xác nhận mật khẩu mới:</label>
-                                    <div class="col-md-8">
-                                        <input class="form-control" type="password" value="11111122333">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-md-3 control-label"></label>
-                                    <div class="col-md-8">
-                                        <input type="button" class="btn btn-primary" value="Lưu Chỉnh Sửa">
-                                        <span></span>
-                                        <input type="reset" class="btn btn-default" value="Thoát">
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label class="control-label">Sở thích:</label>
+                                <textarea class="form-control" name="hobby" rows="4">{{ $user->hobby}}</textarea>
+                            </div>
+                        </div>
+                        
+                        <br>
+                        <h3>Tài khoản và bảo mật</h3>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Mật khẩu hiện tại:</label>
+                                <input class="form-control" type="password" name="password">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label">Mật khẩu mới:</label>
+                                <input class="form-control" type="password" name="new_password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label"></label>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <a onclick="goBack()" class="btn btn-default border">Cancel</a>
+                            </div>
                         </div>
                     </div>
-                </form>
                 </div>
-                <hr>
+            </form>
+            </div>
+            <hr>
         </div>
-
-
-
     </div>
   </div>
 </section> <!-- .section -->

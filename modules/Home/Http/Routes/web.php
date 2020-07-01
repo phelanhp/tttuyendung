@@ -32,7 +32,7 @@ Route::prefix('student')->group(function(){
          ->name('get.student.edit');
     Route::get('/activity', 'StudentController@getActivityStudent')
          ->name('get.student.activity');
-    Route::post('/edit', 'StudentController@getEditStudent')
+    Route::post('/edit', 'StudentController@postEditStudent')
          ->name('post.student.edit');
 });
 Route::prefix('news')->group(function (){
