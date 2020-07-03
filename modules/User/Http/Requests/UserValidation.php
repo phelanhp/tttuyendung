@@ -21,7 +21,11 @@ class UserValidation extends FormRequest{
      * @return array
      */
     public function rules(){
-        $method = request()->segment(3);
+        if (request()->segment(1) !== 'admin'){
+            $method = request()->segment(2);
+        }else{
+            $method = request()->segment(3);
+        }
         switch ($method){
             case 'edit':
                 return [

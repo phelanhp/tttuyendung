@@ -21,17 +21,23 @@ class PostValidation extends FormRequest{
      * @return array
      */
     public function rules(){
-        $method = request()->segment(3);
+        if (request()->segment(1) !== 'admin'){
+            $method = request()->segment(2);
+        }else{
+            $method = request()->segment(3);
+        }
         switch ($method){
             case 'edit':
                 return [
                     'name'        => 'required',
                     'status'      => 'required',
                     'category_id' => 'required',
+                    'description' => 'required'
                 ];
                 break;
             default:
                 return [
+                    'description' => 'required',
                     'name'        => 'required',
                     'status'      => 'required',
                     'category_id' => 'required',
@@ -49,9 +55,11 @@ class PostValidation extends FormRequest{
 
     public function attributes(){
         return [
-            'name'   => 'Tiêu đề bài đăng',
-            'status' => 'Trạng thái',
+            'name'        => 'Tiêu đề bài đăng',
+            'status'      => 'Trạng thái',
             'category_id' => 'Thể loại bài đăng',
+            'description' => 'Mô tả',
+            'image'       => 'Hình ảnh',
         ];
     }
 }

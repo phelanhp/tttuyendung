@@ -1,10 +1,10 @@
 <header id="header">
 
 	<h1 id="site-logo">
-		<a href="./index.html">
+		<a href="{{ route('get.index.dashboard') }}">
 			<img src="./img/logos/logo.png" alt="Site Logo" />
 		</a>
-	</h1>	
+	</h1>
 
 	<a href="javascript:;" data-toggle="collapse" data-target=".top-bar-collapse" id="top-bar-toggle" class="navbar-toggle collapsed">
 		<i class="fa fa-cog"></i>
@@ -21,11 +21,11 @@
 		<ul class="nav navbar-nav pull-left">
 			<li class="">
 				<a href="./index.html">
-					<i class="fa fa-home"></i> 
+					<i class="fa fa-home"></i>
 					Home
 				</a>
 			</li>
-		    
+
 		</ul>
 
 		<ul class="nav navbar-nav pull-right">
@@ -39,26 +39,26 @@
 		    	<ul class="dropdown-menu" role="menu">
 			        <li>
 			        	<a href="./page-profile.html">
-			        		<i class="fa fa-user"></i> 
+			        		<i class="fa fa-user"></i>
 			        		&nbsp;&nbsp;My Profile
 			        	</a>
 			        </li>
 			        <li>
 			        	<a href="./page-calendar.html">
-			        		<i class="fa fa-calendar"></i> 
+			        		<i class="fa fa-calendar"></i>
 			        		&nbsp;&nbsp;My Calendar
 			        	</a>
 			        </li>
 			        <li>
 			        	<a href="./page-settings.html">
-			        		<i class="fa fa-cogs"></i> 
+			        		<i class="fa fa-cogs"></i>
 			        		&nbsp;&nbsp;Settings
 			        	</a>
 			        </li>
 			        <li class="divider"></li>
 			        <li>
 			        	<a href="{{ route('get.logout') }}">
-			        		<i class="fa fa-sign-out"></i> 
+			        		<i class="fa fa-sign-out"></i>
 			        		&nbsp;&nbsp;Logout
 			        	</a>
 			        </li>

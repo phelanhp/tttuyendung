@@ -22,42 +22,42 @@
                     <div class="contact-wrap w-100 p-md-5 p-4">
                         <h3 class="mb-4">Thêm tin tuyển dụng</h3>
                         <div id="form-message-warning" class="mb-4"></div>
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('post.news_manager.edit',$news->id) }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="label" for="email">Tiêu Đề</label>
-                                        <input type="text" class="form-control" name="name" id="" placeholder="Nhập Tiêu Đề">
+                                        <label>Tiêu Đề</label>
+                                        <input type="text" class="form-control" name="name" value="{{ $news->name }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="label" for="email">Thể loại</label>
                                         <select name="category_id" id="category_id" class="form-control select2">
-                                            <option value="">Chọn</option>
                                             @foreach($categories as $val)
-                                                <option @if(isset($data) && $data->category_id == $val->id) selected @endif value="{{ $val->id }}">{{ $val->name }}</option>
+                                                <option @if(isset($news) && $news->category_id == $val->id) selected @endif value="{{ $val->id }}">{{ $val->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="">Môt tả</label>
-                                        <textarea name="description" class="form-control" id="" cols="30" rows="5"></textarea>
+                                        <textarea name="description" class="form-control" id="" cols="30" rows="5">{{ $news->description }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
                                     <div class="form-group">
                                         <label class="label" for="subject">Nội Dung</label>
-                                        <textarea name="content" id="ckeditor" class="" cols="30" rows="10"></textarea>
+                                        <textarea name="content" id="ckeditor" class="" cols="30" rows="10">{{ $news->content }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="label" for="subject">Hình ảnh</label>
-                                        <input type="file" class="form-control" name="image" id="" placeholder="">
+                                        <input type="file" class="form-control" name="image" id="" placeholder="" value="{{ old('image') }}">
+                                        <img src="{{ asset($news->image) }}" width="200px" alt="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -70,8 +70,8 @@
                             </div>
                         </form>
                     </div>
-                </div> <!-- /.portlet-content -->
-            </div> <!-- .col-md-8 -->
+                </div>
+            </div>
         </div>
     </section> <!-- .section -->
 @endsection

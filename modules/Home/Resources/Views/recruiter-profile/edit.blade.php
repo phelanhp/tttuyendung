@@ -80,3 +80,6 @@
             </div>
     </section> <!-- .section -->
 @endsection
+@push('js')
+    {!! JsValidator::formRequest('PPM\User\Http\Requests\UserValidation') !!}
+@endpush

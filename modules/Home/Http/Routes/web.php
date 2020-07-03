@@ -44,6 +44,10 @@ Route::prefix('news')->group(function (){
          ->name('get.news_name.search');
     Route::get('/list', 'NewsController@getNewList')->name('get.news_manager.list');
     Route::get('/create', 'NewsController@getNewsCreate')->name('get.news_manager.create');
+    Route::post('/create', 'NewsController@postNewsCreate')->name('post.news_manager.create');
+    Route::get('/edit/{id}', 'NewsController@getNewsEdit')->name('get.news_manager.edit');
+    Route::post('/edit/{id}', 'NewsController@postNewsEdit')->name('post.news_manager.edit');
+    Route::get('/delete/{id}', 'NewsController@delete')->name('get.news_manager.delete');
 });
 
 Route::post('/comment', 'NewsController@postComment')->name('post.comment');

@@ -46,16 +46,15 @@
                                         </td>
                                         <td>{{ $key }}</td>
                                         <td><img src="{{ asset($post->image) }}" width="100%" alt=""></td>
-                                        <td><a href="{{ route('get.news.detail',$post->id) }}">{{ $post->name }}</a></td>
+                                        <td><a href="{{ route('get.news.detail',$post->id) }}">{{ $post->name }}</a>
+                                        </td>
                                         <?php $date = date_create($post->created_at); ?>
                                         <td>{{ date_format($date,'d-m-Y') }}</td>
                                         <td></td>
                                         <td class="text-center">
-                                            <button class="btn btn-xs btn-primary"><i class="fa fa-pencil-alt"></i>
-                                            </button>
-                                            <button class="btn btn-xs btn-secondary">
-                                                <a href=""><i class="fa fa-times"></i></a>
-                                            </button>
+                                            <a href="{{ route('get.news_manager.edit',$post->id) }}" class="btn btn-xs btn-primary"><i class="fa fa-pencil-alt"></i>
+                                            </a>
+                                            <a class="btn btn-xs btn-secondary" href="{{ route('get.news_manager.delete',$post->id) }}"><i class="fa fa-times"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
