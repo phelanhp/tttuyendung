@@ -4,6 +4,7 @@ namespace PPM\Home\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PPM\Category\Entities\Recruitment;
 use PPM\Post\Entities\Post;
 use PPM\Post\Entities\PostCategory;
 use PPM\Post\Entities\PostComment;
@@ -62,6 +63,71 @@ class NewsController extends Controller{
                                    ->get();
 
         return view('Home::news.detail', compact('post', 'postComments'));
+    }
+
+    public function postRecruitment(Request $request, $id){
+        $news        = Post::find($id);
+        $recruitment = Recruitment::where('user_id', $request->user_id)
+                                  ->where('post_id', $news->id)
+                                  ->first();
+
+        if (isset($recruitment)){
+            $recruitment->name = $request->name;
+            dd($request->name);
+            $recruitment->email = $request->email;
+            if ($request->file('cv_profile')){
+                if (file_exists($recruitment->cv_profile)){
+                    unlink($recruitment->cv_profile);
+                }
+                $profile = time() . '-' . $request->file('cv_profile')->getClientOriginalName();
+                $request->file('cv_profile')
+                        ->move('upload/profile/recruitment/student/' . $request->user_id, $profile);
+                $recruitment->cv_profile = 'upload/profile/recruitment/student/' . $request->user_id . '/' . $profile;
+            }
+            $recruitment->save();
+        }else{
+
+            $recruitment               = new Recruitment();
+            $recruitment->user_id      = $request->user_id;
+            $recruitment->recruiter_id = $news->user_id;
+            $recruitment->post_id      = $news->id;
+            $recruitment->name         = $request->name;
+            $recruitment->email        = $request->email;
+            if ($request->file('cv_profile')){
+                $profile = time() . '-' . $request->file('cv_profile')->getClientOriginalName();
+                $request->file('cv_profile')
+                        ->move('upload/profile/recruitment/student/' . $request->user_id, $profile);
+                $recruitment->cv_profile = 'upload/profile/recruitment/student/' . $request->user_id . '/' . $profile;
+            }
+            $recruitment->save();
+        }
+
+        return back();
+    }
+
+    public function getRecruitmentList(){
+        if (Auth::guard('user')->check()){
+            $user = User::find(Auth::guard('user')->id());
+
+            $recruitment = Recruitment::where('recruiter_id', $user->id)->get();
+
+            return view('Home::recruiter-profile.recruitment', compact('user', 'recruitment'));
+        }
+
+        return redirect()->route('get.login.index');
+    }
+
+    public function getRecruitmentDelete($id){
+        if (Auth::guard('user')->check()){
+            $user = User::find(Auth::guard('user')->id());
+
+            $recruitment = Recruitment::find($id);
+            $recruitment->delete();
+
+            return back();
+        }
+
+        return redirect()->route('get.login.index');
     }
 
     public function getNewList(){
@@ -139,6 +205,7 @@ class NewsController extends Controller{
     public function delete($id){
         $data = Post::find($id);
         $data->delete();
+
         return redirect()->back();
     }
 

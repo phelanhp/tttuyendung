@@ -1,8 +1,13 @@
-@extends('Home::layout.master')<?php
+@extends('Home::layout.master')
 
-use PPM\Post\Entities\PostLike;$like = PostLike::where('post_id', $post->id)
-                                               ->where('user_id', Auth::guard('user')->id())
-                                               ->first();
+<?php
+use PPM\Post\Entities\PostLike;use PPM\User\Entities\User;
+
+$like = PostLike::where('post_id', $post->id)
+                ->where('user_id', Auth::guard('user')->id())
+                ->first();
+$user = User::find(Auth::guard('user')->id());
+
 $check_like = (isset($like) && $like->status === 1) ? true : FALSE;
 
 ?>
@@ -30,7 +35,13 @@ $check_like = (isset($like) && $like->status === 1) ? true : FALSE;
                             <h4 class="mb-3">{{$post->name}}</h4>
                         </div>
                         <div class="form-group float-right">
-                            <a href="#" class="btn btn-primary">Ứng tuyển ngay</a>
+                            @if(!empty($user))
+                                @if($user->group->key === 'sinh-vien')
+                                    <a href="javascript:" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Ứng tuyển ngay</a>
+                                @endif
+                            @else
+                                <a href="javascript:" class="btn btn-primary" onclick="alert('Vui lòng đăng nhập để ứng tuyển.')">Ứng tuyển ngay</a>
+                            @endif
                             @if($check_like)
                                 <a href="javascript:" class="btn btn-danger like">Đã yêu thích</a>
                             @else
@@ -104,6 +115,41 @@ $check_like = (isset($like) && $like->status === 1) ? true : FALSE;
                                 @endforeach
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ứng tuyển</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="{{ route('post.recruitment',$post->id) }}" method="post" enctype='multipart/form-data'>
+                            {{ csrf_field() }}
+                            <input type="hidden" name="user_id" value="{{ $user->id ?? NULL }}">
+                            <div class="form-group">
+                                <label for="">Họ tên</label>
+                                <input type="text" class="form-control" required name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" required name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Hồ sơ/CV</label>
+                                <input type="file" class="form-control" required name="cv_profile">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Gửi</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

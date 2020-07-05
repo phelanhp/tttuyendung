@@ -22,7 +22,7 @@ $url_current = URL::current();
                                     Cá nhân
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                    <a class="dropdown-item" href="{{ route('get.student.profile') }}">Profile</a>
+                                    <a class="dropdown-item" href="{{ route('get.student.profile',$user->id) }}">Profile</a>
                                     <a class="dropdown-item" href=" {{ route('get.student.edit') }} ">Chỉnh sửa profile</a>
                                     <a class="dropdown-item" href="{{ route('get.student.activity') }}">Lịch sử hoạt động</a>
                                     <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
@@ -37,6 +37,7 @@ $url_current = URL::current();
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                     <a class="dropdown-item" href="{{ route('get.recruiter_profile.profile') }}">Profile</a>
                                     <a class="dropdown-item" href="{{ route('get.news_manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
+                                    <a class="dropdown-item" href="{{ route('get.recruitment.list') }}">Hồ Sơ Tuyển Dụng</a>
                                     <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
                                 </div>
                             </div>

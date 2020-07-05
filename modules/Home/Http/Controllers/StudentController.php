@@ -7,21 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PPM\Category\Entities\Major;
 use PPM\Category\Entities\Student;
-use PPM\Post\Entities\Post;
 use PPM\Post\Entities\PostComment;
 use PPM\Post\Entities\PostLike;
 use PPM\User\Entities\User;
 
 class StudentController extends Controller{
 
-    public function getProfileStudent(){
-        if (Auth::guard('user')->check()){
-            $user = User::find(Auth::guard('user')->id());
+    public function getProfileStudent($id){
+        $user = User::find($id);
 
-            return view('Home::student.profile', compact('user'));
-        }
-
-        return redirect()->route('get.login.index');
+        return view('Home::student.profile', compact('user'));
     }
 
     public function getEditStudent(){
@@ -39,21 +34,26 @@ class StudentController extends Controller{
         if (Auth::guard('user')->check()){
             $user = User::find(Auth::guard('user')->id());
 
-            $comments = PostComment::with('post','user')->where('user_id', $user->id)->get()->toArray();
-            $likes = PostLike::with('post','user')->where('user_id', $user->id)->get()->toArray();
+            $comments = PostComment::with('post', 'user')
+                                   ->where('user_id', $user->id)
+                                   ->get()
+                                   ->toArray();
+            $likes    = PostLike::with('post', 'user')
+                                ->where('user_id', $user->id)
+                                ->get()
+                                ->toArray();
 
 
-            $result = array_merge($comments,$likes);
+            $result = array_merge($comments, $likes);
 
             $sort_col = [];
-            foreach ($result as $key => $item)
-            {
+            foreach ($result as $key => $item){
                 $sort_col[$key] = $item['created_at'];
             }
             array_multisort($sort_col, SORT_ASC, $result);
             $result = collect($result);
 
-            return view('Home::student.activity', compact('user','result'));
+            return view('Home::student.activity', compact('user', 'result'));
         }
 
         return redirect()->route('get.login.index');

@@ -25,8 +25,8 @@ Route::prefix('recruiter')->group(function (){
     Route::post('/edit', 'ProfileRecruiterController@postRecruiterEdit')
          ->name('post.recruiter_profile.edit');
 });
-Route::prefix('student')->group(function(){
-    Route::get('/','StudentController@getProfileStudent')
+Route::prefix('student')->group(function (){
+    Route::get('/{id}', 'StudentController@getProfileStudent')
          ->name('get.student.profile');
     Route::get('/edit', 'StudentController@getEditStudent')
          ->name('get.student.edit');
@@ -48,6 +48,11 @@ Route::prefix('news')->group(function (){
     Route::get('/edit/{id}', 'NewsController@getNewsEdit')->name('get.news_manager.edit');
     Route::post('/edit/{id}', 'NewsController@postNewsEdit')->name('post.news_manager.edit');
     Route::get('/delete/{id}', 'NewsController@delete')->name('get.news_manager.delete');
+    Route::get('/recruitment/list', 'NewsController@getRecruitmentList')
+         ->name('get.recruitment.list');
+    Route::post('/recruitment/{id}', 'NewsController@postRecruitment')->name('post.recruitment');
+    Route::get('/recruitment/delete/{id}', 'NewsController@getRecruitmentDelete')
+         ->name('get.recruitment.delete');
 });
 
 Route::post('/comment', 'NewsController@postComment')->name('post.comment');
