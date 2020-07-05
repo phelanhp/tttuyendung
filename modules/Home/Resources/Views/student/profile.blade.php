@@ -114,6 +114,23 @@
                                     </div>
                                     <hr />
                                     <div class="row">
+                                        <div class="col-3">
+                                            <label style="font-weight:bold;">Thành Tích :</label>
+                                    
+                                            {{ $user->student->achievements ?? NULL }}
+                                        </div>
+                                        <div class="col-3">
+                                            <label style="font-weight:bold;">Chứng Chỉ :</label>
+                                        
+                                            {{ $user->student->certificate ?? NULL }}
+                                        </div>
+                                        <div class="col-3">
+                                            <label style="font-weight:bold;">Kinh Nghiệm :</label>
+                                            {{ $user->student->experience ?? NULL }}
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div class="row">
                                         <div class="col-sm-3 col-md-2 col-5">
                                             <label style="font-weight:bold;">Khóa học</label>
                                         </div>

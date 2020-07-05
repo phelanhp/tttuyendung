@@ -90,7 +90,7 @@ class StudentController extends Controller{
             $student->update();
 
 
-            return redirect()->back();
+            return redirect()->route('get.student.profile');
 
         }
     }
