@@ -1,7 +1,7 @@
 @extends('Home::layout.master')
 
 @section('content')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bannerctuet.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
@@ -18,8 +18,10 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8 ftco-animate">
                     @foreach($recruiters as $recruiter)
+                    @if($recruiter->user)
                     <div class="story-wrap d-md-flex align-items-center">
                         <div class="img" style="background-image: url({{ asset($recruiter->user->avatar) }});"></div>
                         <div class="text pl-md-5">
@@ -30,6 +32,7 @@
                             </p>
                         </div>
                     </div>
+                    @endif
                     @endforeach
                     <div class="row mt-5">
                         <div class="col text-center">

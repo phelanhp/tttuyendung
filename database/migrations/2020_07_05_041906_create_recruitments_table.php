@@ -22,6 +22,9 @@ class CreateRecruitmentsTable extends Migration{
             $table->text('cv_profile')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
+
+            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

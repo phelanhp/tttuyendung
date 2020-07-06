@@ -13,7 +13,7 @@
             </div>
             <div class="row d-flex no-gutters">
                 <div class="col-md-6 d-flex">
-                    <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end mb-4 mb-sm-0" style="background-image:url(/frontend/images/about.jpg);"></div>
+                    <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-end mb-4 mb-sm-0" style="background-image:url(/frontend/images/img.jpg);"></div>
                 </div>
                 <div class="col-md-6 pl-md-5 py-md-5">
                     <div class="services-2 w-100 d-flex">
@@ -57,7 +57,7 @@
             <div class="row justify-content-center pb-5 mb-3">
                 <div class="col-md-7 heading-section text-center ftco-animate">
                     <h2>Tin tuyển dụng gần đây</h2>
-                    <span class="subheading">News &amp; Blog</span>
+                    <span class="subheading">Tin Tuyển Dụng Mới Nhất</span>
                 </div>
             </div>
             <div class="row d-flex">
