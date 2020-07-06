@@ -17,13 +17,21 @@
     </section>
     <section class="ftco-section ftco-degree-bg">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 ftco-animate">
-                    <div class="contact-wrap w-100 p-md-5 p-4">
-                        <h3 class="mb-4">Chỉnh sửa Profile</h3>
-                        <div id="form-message-warning" class="mb-4"></div>
-                        <form method="POST" action="{{ route('post.recruiter_profile.edit') }}">
-                            {{ csrf_field() }}
+            <form method="POST" action="{{ route('post.recruiter_profile.edit') }}" enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <div class="image-container">
+                                <img src="{{ asset($user->avatar) }}" id="imgProfile" style="width: 150px; height: 150px" class="img-thumbnail"/>
+                                <div class="middle"></div>
+                            </div>
+                            <h6>Tải ảnh lên</h6>
+                            <input type="file" name="avatar" class="form-control" placeholder="avatar">
+                        </div>
+                    </div>
+                    <div class="col-lg-9 ftco-animate">
+                        <div class="contact-wrap w-100">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -74,11 +82,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div> <!-- .col-md-8 -->
-            </div>
-    </section> <!-- .section -->
+                </div>
+            </form>
+        </div>
+    </section>
 @endsection
 @push('js')
     {!! JsValidator::formRequest('PPM\User\Http\Requests\UserValidation') !!}
