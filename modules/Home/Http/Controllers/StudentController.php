@@ -105,7 +105,7 @@ class StudentController extends Controller{
             $student->update();
 
 
-            return redirect()->route('get.student.profile');
+            return redirect()->route('get.student.profile',$user->id);
 
         }
     }
