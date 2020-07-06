@@ -34,6 +34,11 @@ class ProfileRecruiterController extends Controller{
             $user        = User::find(Auth::guard('user')->id());
             $user->name  = $request->name;
             $user->hobby = $request->hobby;
+            if ($request->file('avatar')){
+                $image = time() . '-' . $request->file('avatar')->getClientOriginalName();
+                $request->file('avatar')->move('upload/images/users', $image);
+                $user->avatar = 'upload/images/users/' . $image;
+            }
             $user->update();
 
             $recruiter = Recruiter::where('user_id', $user->id)->first();
