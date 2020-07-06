@@ -26,7 +26,7 @@ Route::prefix('recruiter')->group(function (){
          ->name('post.recruiter_profile.edit');
 });
 Route::prefix('student')->group(function (){
-    Route::get('/{id}', 'StudentController@getProfileStudent')
+    Route::get('profile/{id}', 'StudentController@getProfileStudent')
          ->name('get.student.profile');
     Route::get('/edit', 'StudentController@getEditStudent')
          ->name('get.student.edit');

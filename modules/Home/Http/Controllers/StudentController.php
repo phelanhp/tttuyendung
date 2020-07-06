@@ -13,12 +13,20 @@ use PPM\User\Entities\User;
 
 class StudentController extends Controller{
 
+    /**
+     * @param $id
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getProfileStudent($id){
         $user = User::find($id);
 
         return view('Home::student.profile', compact('user'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function getEditStudent(){
         if (Auth::guard('user')->check()){
             $user   = User::find(Auth::guard('user')->id());
@@ -30,6 +38,9 @@ class StudentController extends Controller{
         return redirect()->route('get.login.index');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function getActivityStudent(){
         if (Auth::guard('user')->check()){
             $user = User::find(Auth::guard('user')->id());
@@ -59,7 +70,11 @@ class StudentController extends Controller{
         return redirect()->route('get.login.index');
     }
 
-
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postEditStudent(Request $request){
         if (Auth::guard('user')->check()){
             $user         = User::find(Auth::guard('user')->id());
@@ -94,7 +109,6 @@ class StudentController extends Controller{
 
         }
     }
-
 }
 
 ?>
