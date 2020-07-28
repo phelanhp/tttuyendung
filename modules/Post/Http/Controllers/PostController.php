@@ -21,7 +21,7 @@ class PostController extends Controller{
     }
 
     public function getIndex(){
-        $data = Post::all();
+        $data = Post::paginate(6);
         return view('Post::post.list',compact('data'));
     }
 
@@ -47,9 +47,10 @@ class PostController extends Controller{
         return redirect()->back();
     }
 
-    public function delete($id){
+    public function delete(Request $request ,$id){
         $data = Post::find($id);
         $data->delete();
+        $request->session()->flash('danger','Xóa thành công!');
         return redirect()->back();
     }
 
@@ -60,9 +61,10 @@ class PostController extends Controller{
         return response()->json(array('success' => true, 'html'=>$returnHTML));
     }
 
-    public function commentDelete($id){
+    public function commentDelete( Request $request ,$id){
         $comment = PostComment::find($id);
         $comment->delete();
+        $request->session()->flash('danger','Xóa thành công!');
         return response()->json();
     }
 

@@ -17,6 +17,14 @@
     </section>
     <section class="ftco-section ftco-degree-bg">
         <div class="container">
+            <!-- Notification -->
+            <div class="notification-box">
+                @if (session('success'))
+                    <div class="alert alert-info notification">{{session('success')}}</div>
+                @elseif (session('danger'))
+                    <div class="alert alert-danger notification">{{session('danger')}}</div>
+                @endif
+            </div>
             <div class="row">
                 <div class="col-md-4">
                     <a href="{{ route('get.news_manager.create') }}" class="btn btn-primary btn-block">Thêm Tin Tuyển Dụng<br/></a>

@@ -64,7 +64,7 @@
                 @foreach($posts as $key => $post)
                     <div class="col-md-4">
                         <div class="blog-entry align-self-stretch">
-                            <a href="blog-single.html" class="block-20 rounded" style="background-image: url({{ asset($post->image) }});">
+                            <a href="{{ route('get.news.detail',$post->id) }}" class="block-20 rounded" style="background-image: url({{ asset($post->image) }});">
                             </a>
                             <div class="text mt-3">
                                 <div class="meta mb-2">
@@ -76,7 +76,7 @@
                                         </a></div>
                                 </div>
                                 <h3 class="heading">
-                                    <a href="#">{{ $post->name }}</a>
+                                    <a href="{{ route('get.news.detail',$post->id) }}">{{ $post->name }}</a>
                                 </h3>
                             </div>
                         </div>

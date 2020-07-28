@@ -15,7 +15,7 @@ class NewsController extends Controller{
 
     public function getNewIndex(){
         $post_categories = PostCategory::get();
-        $posts           = Post::orderBy('created_at', 'DESC')->paginate(6);
+        $posts           = Post::orderBy('created_at', 'DESC')->paginate(12);
         $post_likes      = PostLike::where('user_id', Auth::guard('user')->id())
                                    ->get();
         $liked           = [];
@@ -44,7 +44,7 @@ class NewsController extends Controller{
     public function getNewsSearch(Request $request){
         $post_categories = PostCategory::get();
         $posts           = Post::where('name', 'LIKE', '%' . $request->key_search . '%')
-                               ->paginate(6);
+                               ->paginate(12);
 
         $post_likes = PostLike::where('user_id', Auth::guard('user')->id())
                               ->get();
@@ -161,7 +161,13 @@ class NewsController extends Controller{
             $news->image   = 'upload/images/posts/' . $image;
             $news->user_id = $user->id;
 
-            $news->save();
+            if ($news->save()){
+                $request->session()->flash('success', 'Thêm mới thành công!');
+
+                return redirect()->back();
+            }
+            $request->session()->flash('danger', 'Không thể thêm mới');
+
 
             return redirect()->route('get.news_manager.list');
         }
@@ -202,10 +208,10 @@ class NewsController extends Controller{
         return redirect()->route('get.login.index');
     }
 
-    public function delete($id){
+    public function delete(Request $request , $id){
         $data = Post::find($id);
         $data->delete();
-
+        $request->session()->flash('success', 'Xóa thành công!');
         return redirect()->back();
     }
 

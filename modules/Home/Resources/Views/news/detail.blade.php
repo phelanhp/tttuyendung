@@ -12,7 +12,7 @@ $check_like = (isset($like) && $like->status === 1) ? true : FALSE;
 
 ?>
 @section('content')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bannerctuet.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
@@ -82,7 +82,11 @@ $check_like = (isset($like) && $like->status === 1) ? true : FALSE;
                                                 <img src="{{ asset($comment->user->avatar) }}" alt="{{ $comment->user->name }}">
                                             </div>
                                             <div class="comment-body">
-                                                <h3 class="font-weight-bold comment-name">{{$comment->user->name}}</h3>
+                                                @if($comment->user->group->key == 'sinh-vien')
+                                                <a href="{{ route('get.student.profile',$comment->user->id) }}"><h3 class="font-weight-bold comment-name">{{$comment->user->name}}</h3></a>
+                                                @else
+                                                <a href="{{ route('get.recruiter.detail',$comment->user->recruiter->id) }}"><h3 class="font-weight-bold comment-name">{{$comment->user->name}}</h3></a>
+                                                @endif
                                                 <div class="meta">{{$comment->created_at}}</div>
                                                 <div class="font-weight-light">
                                                     {{$comment->content}}
@@ -98,7 +102,11 @@ $check_like = (isset($like) && $like->status === 1) ? true : FALSE;
                                                                     <img src="{{ asset($child->user->avatar) }}" alt="{{ $child->user->name }}">
                                                                 </div>
                                                                 <div class="comment-body">
-                                                                    <h3 class="font-weight-bold comment-name">{{$child->user->name}}</h3>
+                                                                    @if($child->user->group->key == 'sinh-vien')
+                                                                    <a href="{{ route('get.student.profile',$child->user->id) }}"><h3 class="font-weight-bold comment-name">{{$child->user->name}}</h3></a>
+                                                                    @else
+                                                                    <a href="{{ route('get.recruiter.detail',$child->user->recruiter->id) }}"><h3 class="font-weight-bold comment-name">{{$child->user->name}}</h3></a>
+                                                                    @endif
                                                                     <div class="meta">{{$child->created_at}}</div>
                                                                     <div class="font-weight-light">
                                                                         {{$child->content}}

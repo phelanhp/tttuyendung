@@ -51,4 +51,10 @@ class UserGroupController extends Controller{
         $request->session()->flash('danger','Không thể chỉnh sửa');
         return redirect()->back();
     }
+    public function delete(Request $request ,$id){
+        $data = UserGroup::find($id);
+        $data->delete();
+        $request->session()->flash('danger','Xóa thành công!');
+        return redirect()->back();
+    }
 }

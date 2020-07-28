@@ -12,7 +12,7 @@ class RecruiterController extends Controller{
         $recruiters = Recruiter::paginate(6);
         $posts = Post::orderBy('created_at','DESC')->get();
         $recruiterCategorys = RecruiterCategory::get();
-        return view('Home::recruiter.index', compact('recruiters','posts','recruiterCategorys'));
+        return view('Home::recruiter.index', compact('recruiters','posts','recruiterCategorys',));
     }
 
     public function getRecruiterByCategory($id){

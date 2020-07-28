@@ -10,17 +10,25 @@
                         <span class="mr-2"><a href="index.html">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span>
                         <span><a href="news-ntd.html">Tin tuyển dụng</a> <i class="ion-ios-arrow-forward"></i></span>
                     </p>
-                    <h1 class="mb-0 bread">Thêm Tin Tuyển Dụng</h1>
+                    <h1 class="mb-0 bread">Sửa Tin Tuyển Dụng</h1>
                 </div>
             </div>
         </div>
     </section>
     <section class="ftco-section ftco-degree-bg">
         <div class="container">
+            <!-- Notification -->
+            <div class="notification-box">
+                @if (session('success'))
+                    <div class="alert alert-info notification">{{session('success')}}</div>
+                @elseif (session('danger'))
+                    <div class="alert alert-danger notification">{{session('danger')}}</div>
+                @endif
+            </div>
             <div class="row">
                 <div class="col-lg-12 ftco-animate">
                     <div class="contact-wrap w-100 p-md-5 p-4">
-                        <h3 class="mb-4">Thêm tin tuyển dụng</h3>
+                        <h3 class="mb-4">Sửa tin tuyển dụng</h3>
                         <div id="form-message-warning" class="mb-4"></div>
                         <form action="{{ route('post.news_manager.edit',$news->id) }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}

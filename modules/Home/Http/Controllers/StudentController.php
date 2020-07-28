@@ -61,7 +61,7 @@ class StudentController extends Controller{
             foreach ($result as $key => $item){
                 $sort_col[$key] = $item['created_at'];
             }
-            array_multisort($sort_col, SORT_ASC, $result);
+            array_multisort($sort_col, SORT_DESC, $result);
             $result = collect($result);
 
             return view('Home::student.activity', compact('user', 'result'));

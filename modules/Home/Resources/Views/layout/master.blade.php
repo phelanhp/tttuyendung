@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('/frontend/css/custom.css') }}">
 
     <link href="{{ asset('/css/fontawesome/css/all.css') }}" rel="stylesheet">
+    
 </head>
 
 <body>

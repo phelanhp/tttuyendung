@@ -22,28 +22,30 @@
                 <div class="col-12">
                     <section class="my-5">
                         @foreach($result as $item)
-                            <div class="card mb-3" style="border-radius: 25px">
-                                <div class="card-header p-1 pl-3">
-                                    {{ $item['created_at'] }}
-                                </div>
-                                <div class="card-body p-2 pl-3">
-                                    <div class="d-flex row">
-                                        <div class="col-md-6 active">
-                                            Bạn đã {{ isset($item['content']) ? 'bình luận' : 'thích' }} một bài viết
-                                        </div>
-                                        <div class="media post col-md-6">
-                                            <a href="/news/detail/1/{{ $item['post']['id'] }}">
-                                                <img src="{{ asset($item['post']['image']) }}" class="mr-3" height="50px" alt="image"></a>
-                                            <div class="media-body">
+                            @if(!empty($item['post']))
+                                <div class="card mb-3" style="border-radius: 25px">
+                                    <div class="card-header p-1 pl-3">
+                                        {{ $item['created_at'] }}
+                                    </div>
+                                    <div class="card-body p-2 pl-3">
+                                        <div class="d-flex row">
+                                            <div class="col-md-6 active">
+                                                Bạn đã {{ isset($item['content']) ? 'bình luận' : 'thích' }} một bài viết
+                                            </div>
+                                            <div class="media post col-md-6">
                                                 <a href="/news/detail/{{ $item['post']['id'] }}">
-                                                    <h6 class="mt-0 mb-1">{{ $item['post']['name'] }}</h6>
-                                                </a>
-                                                <div class="text-truncate w-25">{{ $item['post']['description'] }}</div>
+                                                    <img src="{{ asset($item['post']['image']) }}" class="mr-3" height="50px" alt="image"></a>
+                                                <div class="media-body">
+                                                    <a href="/news/detail/{{ $item['post']['id'] }}">
+                                                        <h6 class="mt-0 mb-1">{{ $item['post']['name'] }}</h6>
+                                                    </a>
+                                                    <div class="text-truncate w-25">{{ $item['post']['description'] }}</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         @endforeach
                     </section>
                 </div>

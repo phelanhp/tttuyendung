@@ -1,8 +1,11 @@
+<style>
+
+</style>
 <header id="header">
 
 	<h1 id="site-logo">
-		<a href="{{ route('get.index.dashboard') }}">
-			<img src="./img/logos/logo.png" alt="Site Logo" />
+		<a class="logo" href="/">
+			Start<span>work</span>
 		</a>
 	</h1>
 

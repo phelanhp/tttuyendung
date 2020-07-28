@@ -102,3 +102,20 @@ form, .breadcrumb{
 .is-invalid{
     color: red;
 }
+.logo {
+    color: #f60707;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1;
+   }
+a.logo:hover{
+    color: #b80000;
+    text-decoration: none;
+}
+a.logo span{
+    color: #cccccc;
+}
+#site-logo {
+    top: 0px;
+}

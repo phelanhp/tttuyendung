@@ -25,7 +25,7 @@
                         <th>Hình ảnh</th>
                         <th>Thể loại</th>
                         <th>Like/Comment</th>
-                        <th>Action</th>
+                        <th style="width: 100px;">Action</th>
                     </thead>
                     <tbody>
                     @foreach($data as $key => $val)
@@ -33,7 +33,7 @@
                             <td>{{ $key+1  }}</td>
                             <td>{{ $val->name  }}</td>
                             <td width="200x"><img src="{{ asset($val->image)  }}" alt="" width="70%"></td>
-                            <td>{{ $val->postCategory->name  }}</td>
+                            <td width="300x">{{ $val->postCategory->name  }}</td>
                             <td>
                                 {{ count($val->postLikes)  }} Thích <br>
                                 <a data-toggle="modal" href="#comment-popup" class="comment" post-id="{{ $val->id }}"><span class="count-comment">{{ count($val->postComments)  }}</span> Bình luận </a>
@@ -48,6 +48,15 @@
                     </tbody>
 
                 </table>
+
+                <div class="d-flex justify-content-center ">
+                    <nav aria-label="Page navigation">
+                        <div class="pagination">
+                            {!! $data->render() !!}
+                        </div>
+                    </nav>
+                </div>
+
             </div>
         </div>
     </div>

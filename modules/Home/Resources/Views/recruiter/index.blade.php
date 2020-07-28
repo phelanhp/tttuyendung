@@ -27,7 +27,7 @@
                         <div class="text pl-md-5">
                             <h4>{{ $recruiter->company }}</h4>
                             <p>{{ $recruiter->address }}
-                                <br> SĐT: 0883245689 - 0889345267 <br> Email: itaaa@gmail.com</p>
+                                <br> SĐT: {{ $recruiter->phone }} <br> Email:{{ $recruiter->email }}</p>
                             <p><a href="{{ route('get.recruiter.detail',$recruiter->id) }}" class="btn btn-primary">Xem chi tiết</a>
                             </p>
                         </div>

@@ -3,7 +3,7 @@
         <form method="get" action="{{route('get.news_name.search')}}" class="search-form">
             <div class="form-group">
                 <span><button type="submit" class="btn border-0 bg-transparent"><i style="top: 65%;" class="fa fa-search"></i></button></span>
-                <input type="text" name="key_search"class="form-control" placeholder="Tìm kiếm tên doanh nghiệp">
+                <input type="text" name="key_search"class="form-control" placeholder="Tìm kiếm tin tuyển dụng">
             </div>
         </form>
     </div>
@@ -22,7 +22,7 @@
         <div class="block-21 mb-4 d-flex">
             <a href="{{ route('get.news.detail',$post->id) }}" class="block-20 rounded" style="background-image: url({{ asset($post->image) }});">
             <div class="text">
-                    <a href="#">Even the all-powerful Pointing has no control about the blind texts</a>
+                    <a href="z">{{$post->name}}</a>
                 <div class="meta">
                     <?php $date = date_create($post->created_at); ?>
                     <div><a href="#">{{ date_format($date,'d-m-Y') }}</a></div>
@@ -35,18 +35,5 @@
                         @break;
                 @endif
         @endforeach
-    </div>
-        <div class="sidebar-box ftco-animate">
-        <h3>Tag Cloud</h3>
-        <div class="tagcloud">
-            <a href="#" class="tag-cloud-link">home</a>
-            <a href="#" class="tag-cloud-link">builder</a>
-            <a href="#" class="tag-cloud-link">build</a>
-            <a href="#" class="tag-cloud-link">create</a>
-            <a href="#" class="tag-cloud-link">make</a>
-            <a href="#" class="tag-cloud-link">construction</a>
-            <a href="#" class="tag-cloud-link">house</a>
-            <a href="#" class="tag-cloud-link">architect</a>
-        </div>
     </div>
 </div>

@@ -25,18 +25,12 @@
 
 <body>
 <div id="login-container">
-
-	<div id="logo">
-		<a href="./login.html">
-			<img src="./img/logos/logo-login.png" alt="Logo" />
-		</a>
-	</div>
-
 	<div id="login">
-
-		<h3>Welcome to Admin.</h3>
-
-		<h5>Please sign in to get access.</h5>
+	<h1 class="text-center">
+		<a class="logo text-center" href="/">
+			Start<span>work</span>
+		</a>
+	</h1>
 		@if (session('success'))
             <div class="alert alert-info notification center">{{session('success')}}</div>
         @elseif (session('danger'))
@@ -45,24 +39,21 @@
 		<form id="login-form" action="{{ route('post.login') }}" method="post" class="form">
 			{{ csrf_field() }}
 			<div class="form-group">
-				<label for="login-username">Username</label>
-				<input type="text" class="form-control" name="username" id="login-username" placeholder="Username">
+				<label for="login-username">Tài khoản</label>
+				<input type="text" class="form-control" name="username" id="login-username" placeholder="Tài khoản">
 			</div>
 
 			<div class="form-group">
-				<label for="login-password">Password</label>
-				<input type="password" class="form-control" name="password" id="login-password" placeholder="Password">
+				<label for="login-password">Mật khẩu</label>
+				<input type="password" class="form-control" name="password" id="login-password" placeholder="Mật khẩu">
 			</div>
 
 			<div class="form-group">
 
-				<button type="submit" id="login-btn" class="btn btn-primary btn-block">Signin &nbsp; <i class="fa fa-play-circle"></i></button>
+				<button type="submit" id="login-btn" class="btn btn-primary btn-block">Đăng Nhập &nbsp; <i class="fa fa-play-circle"></i></button>
 
 			</div>
 		</form>
-
-
-		<a href="javascript:;" class="btn btn-default">Forgot Password?</a>
 
 	</div> <!-- /#login -->
 

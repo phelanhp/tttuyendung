@@ -73,7 +73,7 @@ class UserController extends Controller{
                 $student->save();
             }
 
-            $request->session()->flash('success', 'Thêm mới thành công!');
+            $request->session()->flash('success', 'Chỉnh sửa thành công!');
             if ($request->group === 'ntd'){
                 return redirect()->route('user.get.recruiter_list');
             }
@@ -124,7 +124,7 @@ class UserController extends Controller{
                 $student      = Student::where('user_id', $user->id)->first();
                 $student->update($post_student);
             }
-            $request->session()->flash('success', 'Thêm mới thành công!');
+            $request->session()->flash('success', 'Chỉnh sửa thành công!');
             if ($request->group === 'ntd'){
                 return redirect()->route('user.get.recruiter_list');
             }
@@ -142,10 +142,10 @@ class UserController extends Controller{
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function delete($id){
+    public function delete(Request $request ,$id){
         $data = User::find($id);
         $data->delete();
-
+        $request->session()->flash('danger','Xóa thành công!');
         return redirect()->back();
     }
 

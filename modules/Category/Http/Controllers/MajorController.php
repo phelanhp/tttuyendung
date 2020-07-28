@@ -53,9 +53,10 @@ class MajorController extends Controller{
         return redirect()->back();
     }
 
-    public function delete($id){
+    public function delete( Request $request ,$id){
         $data = Major::find($id);
         $data->delete();
+        $request->session()->flash('danger','Xóa thành công!');
         return redirect()->back();
     }
 }

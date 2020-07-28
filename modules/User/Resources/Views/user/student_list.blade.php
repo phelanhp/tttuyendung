@@ -58,7 +58,7 @@
                     <th>Địa chỉ</th>
                     <th>Số CMND</th>
                     <th>Giới tính</th>
-                    <th>Action</th>
+                    <th style="width: 100px;">Action</th>
                     </thead>
                     <tbody>
                     @foreach($data as $key => $val)

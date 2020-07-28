@@ -9,6 +9,7 @@ Route::prefix('admin')->group(function (){
         Route::post('create', 'UserGroupController@postCreate')->name('user_group.post.create');
         Route::get('edit/{id}', 'UserGroupController@getEdit')->name('user_group.get.edit');
         Route::post('edit/{id}', 'UserGroupController@postEdit')->name('user_group.post.edit');
+        Route::get('delete/{id}', 'UserGroupController@delete')->name('user_group.get.delete');
     });
 
     Route::prefix('user')->group(function (){
