@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="{{ asset('/frontend/css/fonts.googleapis.com.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('/frontend/css/stackpath.bootstrapcdn.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('/frontend/css/animate.css') }}">
 
@@ -56,6 +56,10 @@
 <script type="text/javascript" src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
 
 @stack('js')
-
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
 </body>
 </html>

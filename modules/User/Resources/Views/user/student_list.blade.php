@@ -50,25 +50,47 @@
             <div class="card-content p-3">
                 <table class="table">
                     <thead>
-                    <th>STT</th>
-                    <th>Tên</th>
-                    <th>Ngày sinh</th>
-                    <th>Số điện thoại</th>
-                    <th>Email</th>
-                    <th>Địa chỉ</th>
-                    <th>Số CMND</th>
-                    <th>Giới tính</th>
-                    <th style="width: 100px;">Action</th>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã Số Sinh Viên</th>
+                        <th>Tên</th>
+                        <th>Ngày sinh</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Số CMND</th>
+                        <th>Giới tính</th>
+                        <th style="width: 100px;">Action</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <div class="sidebar-box">
+                            <form method="get" action="" class="search-form">
+                                <div class="form-group">
+                                    <span><button type="submit" class="btn border-0 bg-transparent"><i style="top: 65%;" class="fa fa-search"></i></button></span>
+                                    <input type="text" name="key_search"class="form-control" placeholder="Mã Số Sinh Viên">
+                                </div>
+                            </form>
+                            </div>
+                        </th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                     </thead>
                     <tbody>
                     @foreach($data as $key => $val)
                         <tr>
                             <td>{{ $key+1  }}</td>
+                            <td>{{ $val->student->code_id ?? old('code_id')  }}</td>
                             <td>{{ $val->name  }}</td>
                             <td>{{ date('d-m-Y',strtotime($val->birth_date))  }}</td>
                             <td>{{ $val->phone  }}</td>
                             <td>{{ $val->email  }}</td>
-                            <td>{{ $val->address  }}</td>
                             <td>{{ $val->identity_card_no  }}</td>
                             <td>{{ ($val->sex == 0) ? 'Nữ' : 'Nam'  }}</td>
                             <td>

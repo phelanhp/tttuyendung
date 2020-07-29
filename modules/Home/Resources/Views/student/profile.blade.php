@@ -15,6 +15,13 @@
 
 <section class="ftco-section ftco-degree-bg">
   <div class="container">
+    <div class="notification-box">
+                @if (session('success'))
+                    <div class="alert alert-info notification">{{session('success')}}</div>
+                @elseif (session('danger'))
+                    <div class="alert alert-danger notification">{{session('danger')}}</div>
+                @endif
+            </div>
     <div class="row">
       <div class="col-12">
             <div class="card">

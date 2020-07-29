@@ -1,26 +1,22 @@
 @extends('Home::layout.master')
 
 @section('content')
-
-	<section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bannerctuet.jpg');" data-stellar-background-ratio="0.5">
+		
+<section class="hero-wrap hero-wrap-2" style="background-image: url('/frontend/images/bannerctuet.jpg');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
                 <div class="col-md-9 ftco-animate pb-5">
                     <p class="breadcrumbs mb-2">
                         <span class="mr-2"><a href="{{ route('get.home.index') }}">Trang chủ <i class="ion-ios-arrow-forward"></i></a></span>
-                        <span class="mr-2">Cá Nhân <i class="ion-ios-arrow-forward"></i></span> <span>Lịch sử hoạt động <i class="ion-ios-arrow-forward"></i></span>
+                        <span class="mr-2">Cá Nhân <i class="ion-ios-arrow-forward"></i></span> <span>Danh Sách Sinh Viên Tương Tác <i class="ion-ios-arrow-forward"></i></span>
                     </p>
-                    <h1 class="mb-0 bread">Trang tin hoạt động</h1>
-                    <a href="{{ route('get.recruiter_profile.interaction_student_list') }}">
-                    <button type="button" class="btn btn-primary"><i class='fas fa-user-edit'></i>Danh Sách Sinh Viên Tương Tác
-                    </button>
-                    </a>
+                    <h1 class="mb-0 bread">Danh Sách Sinh Viên Tương Tác</h1>
                 </div>
             </div>
         </div>
     </section>
-    <section class="ftco-section ftco-degree-bg">
+<section class="ftco-section ftco-degree-bg">
         <div class="container">
             <table class="table">
             	<thead>
@@ -28,8 +24,6 @@
             			<th>STT</th>
             			<th>Tên Sinh Viên</th>
             			<th>Ngành</th>
-            			<th>Hành động</th>
-                        <th>Bài viết</th>
             		</tr>
             	</thead>
             	<tbody>
@@ -43,12 +37,6 @@
                             </a>
                         </td>
             			<td>{{ $interaction['major'] }}</td>
-            			<td>{{ $interaction['active'] }}</td>
-            			<td>
-                            <a href="{{ route('get.news.detail',$interaction['post_id']) }}">
-                                    {{ $interaction['post'] }}
-                            </a>
-                        </td>
             		</tr>
                     @endforeach
             	</tbody>
@@ -60,5 +48,4 @@
             </div>
         </div>
     </section>
-
 @endsection

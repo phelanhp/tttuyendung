@@ -18,11 +18,18 @@
         </div>
     </section>
     <section class="ftco-section ftco-degree-bg" style="padding-top: 0">
-        <div class="header-recruiter">
+        <div class="container">
+            <div class="notification-box">
+                    @if (session('success'))
+                        <div class="alert alert-info notification">{{session('success')}}</div>
+                    @elseif (session('danger'))
+                        <div class="alert alert-danger notification">{{session('danger')}}</div>
+                    @endif
+            </div>
+            <div class="row">
+                <div class="header-recruiter">
             <img src="{{ asset($user->avatar) }}" width="30%" alt="logo" class="float-left">
         </div>
-        <div class="container">
-            <div class="row">
                 <div class="col-lg-8 ftco-animate">
                     <div class="mt-3">
                         <h2 class="mb-3">{{ $user->recruiter->company }}</h2>

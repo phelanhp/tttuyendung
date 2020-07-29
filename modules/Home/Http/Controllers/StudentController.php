@@ -27,11 +27,12 @@ class StudentController extends Controller{
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function getEditStudent(){
+    public function getEditStudent(Request $request){
         if (Auth::guard('user')->check()){
             $user   = User::find(Auth::guard('user')->id());
             $majors = Major::get();
 
+            $request->session()->flash('success', 'Chỉnh Sửa Thành Công!');
             return view('Home::student.edit', compact('user', 'majors'));
         }
 
@@ -104,7 +105,7 @@ class StudentController extends Controller{
             $student->experience   = $request->experience;
             $student->update();
 
-
+            $request->session()->flash('success', 'Chỉnh Sửa Thành Công!');
             return redirect()->route('get.student.profile',$user->id);
 
         }

@@ -37,7 +37,7 @@ $url_current = URL::current();
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                     <a class="dropdown-item" href="{{ route('get.recruiter_profile.profile') }}">Profile</a>
                                     <a class="dropdown-item" href="{{ route('get.news_manager.list') }}">Quản Lý Tin Tuyển Dụng</a>
-                                    <a class="dropdown-item" href="{{ route('get.recruiter_profile.interaction_student') }}">Sinh Viên Tương Tác</a>
+                                    <a class="dropdown-item" href="{{ route('get.recruiter_profile.interaction_student') }}">Lịch Sử Thông Báo</a>
                                     <a class="dropdown-item" href="{{ route('get.recruitment.list') }}">Hồ Sơ Tuyển Dụng</a>
                                     <a href="{{ route('get.logout.index') }}" class="dropdown-item">Đăng Xuất</a>
                                 </div>

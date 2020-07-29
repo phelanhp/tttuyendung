@@ -17,6 +17,13 @@
     </section>
     <section class="ftco-section ftco-degree-bg">
         <div class="container">
+            <div class="notification-box">
+                @if (session('success'))
+                    <div class="alert alert-info notification">{{session('success')}}</div>
+                @elseif (session('danger'))
+                    <div class="alert alert-danger notification">{{session('danger')}}</div>
+                @endif
+            </div>
             <div class="row">
                 <div class="col-lg-12 ftco-animate">
                     <div class="contact-wrap w-100 p-md-5 p-4">
@@ -63,7 +70,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Đăng</button>
-                                        <button class="btn btn-default">Reset</button>
+                                        <button onclick="goBack()" class="btn btn-default">Cancel</button>
                                         <div class="submitting"></div>
                                     </div>
                                 </div>

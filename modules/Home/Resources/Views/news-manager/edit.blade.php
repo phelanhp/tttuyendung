@@ -71,7 +71,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary">Đăng</button>
-                                        <button class="btn btn-default">Reset</button>
+                                        <button onclick="goBack()" class="btn btn-default">Cancel</button>
                                         <div class="submitting"></div>
                                     </div>
                                 </div>

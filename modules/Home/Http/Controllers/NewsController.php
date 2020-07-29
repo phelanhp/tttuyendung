@@ -99,6 +99,7 @@ class NewsController extends Controller{
                         ->move('upload/profile/recruitment/student/' . $request->user_id, $profile);
                 $recruitment->cv_profile = 'upload/profile/recruitment/student/' . $request->user_id . '/' . $profile;
             }
+            $request->session()->flash('success', 'Ứng Tuyển Thành Công!');
             $recruitment->save();
         }
 
@@ -117,13 +118,14 @@ class NewsController extends Controller{
         return redirect()->route('get.login.index');
     }
 
-    public function getRecruitmentDelete($id){
+    public function getRecruitmentDelete(Request $request , $id){
         if (Auth::guard('user')->check()){
             $user = User::find(Auth::guard('user')->id());
 
             $recruitment = Recruitment::find($id);
             $recruitment->delete();
 
+            $request->session()->flash('success', 'Xóa Thành Công!');
             return back();
         }
 
@@ -164,7 +166,7 @@ class NewsController extends Controller{
             if ($news->save()){
                 $request->session()->flash('success', 'Thêm mới thành công!');
 
-                return redirect()->back();
+                return redirect()->route('get.news_manager.list',$user->id);
             }
             $request->session()->flash('danger', 'Không thể thêm mới');
 
